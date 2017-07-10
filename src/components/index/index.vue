@@ -90,6 +90,12 @@
       </mt-tab-container>
     </div>
 
+      <mt-tab-container v-model="selected">
+        <mt-tab-container-item id="2">
+          <newproducts></newproducts>
+        </mt-tab-container-item>
+      </mt-tab-container>
+
   </div>
 
 </template>
@@ -103,6 +109,7 @@
   import Vue from 'vue'
   import {Navbar, TabItem} from 'mint-ui';
   import 'mint-ui/lib/style.css'
+  import newproducts from '../newproducts/newproducts.vue'
 
   Vue.component(Navbar.name, Navbar);
   Vue.component(TabItem.name, TabItem);
@@ -116,6 +123,9 @@
       return {
         selected: '1'
       };
+    },
+    components:{
+      newproducts
     }
   }
 </script>
