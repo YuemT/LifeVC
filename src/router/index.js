@@ -5,6 +5,7 @@ import allproduct from '../components/allproduct/allproduct.vue'
 import shopcart from '../components/shopcart/shopcart.vue'
 import shopping from '../components/shopping/shopping.vue'
 import usercenter from '../components/usercenter/usercenter.vue'
+import productdetails from '../components/productdetails/productdetails.vue'
 
 Vue.use(Router)
 
@@ -34,6 +35,10 @@ export default new Router({
     {
       path: '/usercenter',
       component: usercenter
+    },
+    {
+      path: '/item',
+      component: productdetails
     }
   ]
 })

@@ -1,7 +1,9 @@
 <template>
     <div class="shopcart">
       <div class="shopcart-header">
+        <router-link to="/">
         <img src="./back-icon.png" alt="" >
+        </router-link>
         购物车
       </div>
       <div class="shopcart-sign-in">
@@ -23,7 +25,6 @@
         <div class="recommend-header">
           Rico.S为你精心推荐
         </div>
-        <recommend></recommend>
         <recommend></recommend>
         <recommend></recommend>
         <recommend></recommend>

@@ -26,7 +26,11 @@
         <mt-tab-container-item id="1">
           <!--轮播图-->
           <mt-swipe :auto="4000" class="swipeImg">
-            <mt-swipe-item><img src="./swipe/1.jpg" alt=""></mt-swipe-item>
+            <mt-swipe-item>
+              <router-link to="/item">
+                <img src="./swipe/1.jpg" alt="">
+              </router-link>
+            </mt-swipe-item>
             <mt-swipe-item><img src="./swipe/2.jpg" alt=""></mt-swipe-item>
             <mt-swipe-item><img src="./swipe/3.jpg" alt=""></mt-swipe-item>
             <mt-swipe-item><img src="./swipe/4.jpg" alt=""></mt-swipe-item>
@@ -101,7 +105,6 @@
 </template>
 
 <script>
-  import BScroll from 'better-scroll'
   import { TabContainer, TabContainerItem } from 'mint-ui';
 
   Vue.component(TabContainer.name, TabContainer);
@@ -115,8 +118,6 @@
   Vue.component(Navbar.name, Navbar);
   Vue.component(TabItem.name, TabItem);
 
-  //Vue.use(BScroll)
-
   import {Swipe, SwipeItem} from 'mint-ui';
 
   Vue.component(Swipe.name, Swipe);
@@ -127,19 +128,14 @@
         selected: '1'
       };
     },
-//    created(){
-//      this.initScroll()
-//    },
-//    methods:{
-//        initScroll(){
-//          new BScroll(document.getElementById('page-part'), {
-//            click: true,
-//            scrollX: true
-//          })
-//        }
-//    },
     components:{
       newproducts
+    },
+    methods:{
+      jumpToDetail () {
+        //alert('jumpToDetail ()')
+        //发送请求，跳转页面
+  }
     }
   }
 </script>
