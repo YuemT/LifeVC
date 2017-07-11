@@ -104,8 +104,10 @@
       <div class="product-footer">
         <span class="kefu">客服</span>
         <span class="shouye">首页</span>
-        <button></button>
-        <button></button>
+        <button class="shopcart-button">
+        </button>
+        <button class="add-to-shopcart">加入购物车</button>
+        <p class="circle">0</p>
       </div>
     </div>
 </template>
@@ -312,12 +314,60 @@
         width 100%
         display block
   .product-footer
-    height 40px
+    height 38px
     width 100%
-    padding 4px 0
+    padding 5px 2px
     border-top 1px solid #ddd
     background #f8f8f8
     position fixed
     left 0
     bottom 0
+    span
+      display inline-block
+      height 48px
+      width 44px
+      font-size 12px
+      background-size 40%
+      background-repeat no-repeat
+      background-position top
+      text-align center
+      padding-top 23px
+    .kefu
+      background-image url("./kefu.png")
+    .shouye
+      background-image url("./shouye.png")
+    .shopcart-button
+      width 75px
+      height 38px
+      border 1px solid #009d42
+      border-radius 5px
+      background rgba(0,0,0,0)
+      background-image url("./gouwuche.png")
+      background-size 32%
+      background-repeat no-repeat
+      background-position 15px 8px
+      margin-left 5px
+    p
+      position absolute
+      top 15px
+      left 150px
+      display inline-block
+      width 18px
+      height 18px
+      background-color #f60
+      border-radius 50%
+      color white
+      line-height 18px
+      text-align center
+    .add-to-shopcart
+      float right
+      margin-right 15px
+      width 168px
+      height 38px
+      background-color #009d42
+      border-radius 5px
+      border none
+      box-sizing border-box
+      color white
+      font-size 16px
 </style>
