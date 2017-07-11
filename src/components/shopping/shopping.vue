@@ -51,6 +51,8 @@
   .shopping
     overflow hidden
     background-color white
+    padding-bottom 5px
+    margin-bottom 55px
     .shopping-header
       height 48px
       width 100%

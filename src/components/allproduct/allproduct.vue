@@ -30,6 +30,7 @@
 <style lang="stylus" rel="stylesheet/stylus">
 .product
   display block
+  margin-bottom 53px
   .all-product-wrap
     position fixed
     top 0

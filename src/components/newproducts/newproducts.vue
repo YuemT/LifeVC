@@ -31,8 +31,9 @@
 
 <style lang="stylus" rel="stylesheet/stylus">
  .new-products-wrap
-    margin-top -96px
-    padding-top 96px
+    //margin-top 94px
+    //margin-bottom 53px
+    //padding-top 96px
    .week-products,.month-products
       .text
         height 38px
