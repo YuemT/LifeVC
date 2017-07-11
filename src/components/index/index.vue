@@ -3,22 +3,22 @@
     <!--头部header-->
     <div class="index-header">
       <div class="header-title">
-      <span class="head-type">
-      </span>
+        <span class="head-type">
+        </span>
       </div>
       <!--nav导航-->
-      <mt-navbar class="page-part" v-model="selected">
-        <mt-tab-item id="1"><span>首页</span></mt-tab-item>
-        <mt-tab-item id="2"><span>新品</span></mt-tab-item>
-        <mt-tab-item id="3"><span>家务</span></mt-tab-item>
-        <mt-tab-item id="4"><span>下厨</span></mt-tab-item>
-        <mt-tab-item id="5"><span>家居服</span></mt-tab-item>
-        <mt-tab-item id="6"><span>生活</span></mt-tab-item>
-        <mt-tab-item id="7"><span>软装</span></mt-tab-item>
-        <mt-tab-item id="8"><span>床品</span></mt-tab-item>
-        <mt-tab-item id="9"><span>工作和旅行</span></mt-tab-item>
-        <mt-tab-item id="10"><span>了解LifeVC</span></mt-tab-item>
-      </mt-navbar>
+        <mt-navbar class="page-part" v-model="selected" id="navbar">
+          <mt-tab-item id="1"><span>首页</span></mt-tab-item>
+          <mt-tab-item id="2"><span>新品</span></mt-tab-item>
+          <mt-tab-item id="3"><span>家务</span></mt-tab-item>
+          <mt-tab-item id="4"><span>下厨</span></mt-tab-item>
+          <mt-tab-item id="5"><span>家居服</span></mt-tab-item>
+          <mt-tab-item id="6"><span>生活</span></mt-tab-item>
+          <mt-tab-item id="7"><span>软装</span></mt-tab-item>
+          <mt-tab-item id="8"><span>床品</span></mt-tab-item>
+          <mt-tab-item id="9"><span>工作和旅行</span></mt-tab-item>
+          <mt-tab-item id="10"><span>了解LifeVC</span></mt-tab-item>
+        </mt-navbar>
     </div>
     <!--首页选项卡-->
     <div class="index-tab">
@@ -101,6 +101,7 @@
 </template>
 
 <script>
+  import BScroll from 'better-scroll'
   import { TabContainer, TabContainerItem } from 'mint-ui';
 
   Vue.component(TabContainer.name, TabContainer);
@@ -114,6 +115,8 @@
   Vue.component(Navbar.name, Navbar);
   Vue.component(TabItem.name, TabItem);
 
+  //Vue.use(BScroll)
+
   import {Swipe, SwipeItem} from 'mint-ui';
 
   Vue.component(Swipe.name, Swipe);
@@ -124,6 +127,17 @@
         selected: '1'
       };
     },
+//    created(){
+//      this.initScroll()
+//    },
+//    methods:{
+//        initScroll(){
+//          new BScroll(document.getElementById('page-part'), {
+//            click: true,
+//            scrollX: true
+//          })
+//        }
+//    },
     components:{
       newproducts
     }
@@ -163,13 +177,13 @@
         padding-bottom 2px
         span
           display inline-block
-          width 80px
+          //width 80px
           color #333
           font-size 14px
     .index-tab
-      margin-top 102px
+      margin-top 94px
       .mt-tab-container
-        padding-top 102px
+        padding-top 94px
 
       .swipeImg
         height 250px

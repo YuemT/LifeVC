@@ -56,5 +56,5 @@
         text-align center
         outline none
   .product-wrapper
-    padding-top 102px
+    padding-top 94px
 </style>
