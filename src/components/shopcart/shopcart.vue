@@ -23,20 +23,29 @@
         <div class="recommend-header">
           Rico.S为你精心推荐
         </div>
+        <recommend></recommend>
+        <recommend></recommend>
+        <recommend></recommend>
+        <recommend></recommend>
+        <recommend></recommend>
+        <recommend></recommend>
+        <recommend></recommend>
       </div>
     </div>
 </template>
 
 <script>
+    import recommend from '../recommend/recommend.vue'
     export default{
-
+      components:{
+          recommend
+      }
     }
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">
 .shopcart
   position relative
-  height 100%
   .shopcart-header
     img
       position absolute
@@ -124,7 +133,9 @@
 
 
   .recommend
+    width 800%
     background-color white
+    height 219px
     .recommend-header
       height 24px
       line-height 24px
