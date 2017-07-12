@@ -8,6 +8,7 @@ import usercenter from '../components/usercenter/usercenter.vue'
 import productdetails from '../components/productdetails/productdetails.vue'
 import loginandregister from '../components/loginandregister/loginandregister.vue'
 import aboutlifevc from '../components/aboutlifevc/aboutlifevc.vue'
+import addresscom from '../components/addresscom/addresscom.vue'
 
 Vue.use(Router)
 

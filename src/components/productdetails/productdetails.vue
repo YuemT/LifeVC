@@ -69,7 +69,7 @@
         <!--运费-->
         <div class="transport">
           <span class="product-transport">送至:</span>
-          <span class="transport-city">上海(满￥99免运费)</span>
+          <span class="transport-city" @click="showAdress=!showAdress">{{addressProvince}}{{addressCity}}{{addressXian}}(满￥99免运费)</span>
           <span class="transport-discount">新会员首单，满69元免运费</span>
         </div>
         <!--活动中心-->
@@ -107,20 +107,44 @@
         <img class="downloadTop" src="./downloadTop.png" alt="">
         <img class="downloadBottom" src="./downloadBottom.png" alt="">
       </div>
+      <!--三级联动-->
+      <transition name="address">
+        <div class="address-detail" v-show="showAdress">
+          <div class="address-header">
+            <button class="button-left" @click="showAdress=!showAdress">取消</button>
+            <button class="button-right" @click="showAdress=!showAdress">确定</button>
+          </div>
+          <div class="address-components">
+            <div class="address">
+              <mt-picker :slots="addressSlots" class="picker" @change="onAddressChange" :visible-item-count="5" ></mt-picker >
+            </div>
+          </div>
+        </div>
+      </transition>
+      <!--黑窗口-->
+      <transition name="blackwindow">
+        <div class="black-window" v-show="showAdress"></div>
+      </transition>
       <div class="product-footer">
         <span class="kefu">客服</span>
-        <span class="shouye">首页</span>
+        <router-link to="/"><span class="shouye">首页</span></router-link>
         <button class="shopcart-button">
         </button>
         <button class="add-to-shopcart">加入购物车</button>
         <p class="circle">0</p>
       </div>
+
     </div>
 </template>
 
 <script>
     import Vue from 'vue'
     import { Swipe, SwipeItem } from 'mint-ui';
+    import addresscom from '../addresscom/addresscom.vue'
+
+    import { Picker } from 'mint-ui'; //前提是npm install mint-ui -S
+    import s from './address4.json'
+    Vue.component(Picker.name, Picker);
 
     Vue.component(Swipe.name, Swipe);
     Vue.component(SwipeItem.name, SwipeItem);
@@ -128,7 +152,48 @@
       data(){
         return {
           isShow: true,
-          num: 1
+          num: 1,
+          showAdress: false,
+          companyName:'',
+          addressSlots: [
+            {
+              flex: 1,
+              defaultIndex: 1,
+              values: Object.keys(s),
+              className: 'slot1',
+              textAlign: 'center'
+            }, {
+              divider: true,
+              content: '-',
+              className: 'slot2'
+            }, {
+              flex: 1,
+              values: [],
+              className: 'slot3',
+              textAlign: 'center'
+            }, {
+              divider: true,
+              content: '-',
+              className: 'slot4'
+            }, {
+              flex: 1,
+              values: [],
+              className: 'slot5',
+              textAlign: 'center'
+            }
+          ],
+          streetSlots: [
+            {
+              flex: 1,
+              values: [],
+              className: 'slot1',
+              textAlign: 'center'
+            }
+          ],
+          addressProvince: '省',
+          addressCity: '市',
+          addressXian: '区',
+          addressStreet: '街道'
         }
       },
       methods:{
@@ -143,7 +208,42 @@
               this.num--
             }
           }
+        },
+        onAddressChange(picker, values) {
+          let sheng = Object.keys(s);
+          let shi = Object.keys(s[values[0]]);
+          let xian = s[values[0]][shi[0]];
+          this.xianObj = xian;
+          picker.setSlotValues(1, shi);
+          this.addressProvince = values[0];
+          this.addressCity = values[1];
+          this.addressXian = values[2];
+          picker.setSlotValues(2, Object.keys(xian));
+        },
+        onStreetChange(picker, values){
+          this.addressStreet = values[0]
         }
+      },
+      watch: {
+        'addressXian': {
+          handler(val, oval){
+            let street = this.xianObj[this.addressXian]
+            this.streetSlots[0].values = street
+          }
+        }
+      },
+      created(){
+
+      },
+      mounted(){
+        this.$nextTick(() => {
+          setTimeout(() => {//这个是一个初始化默认值的一个技巧
+            this.addressSlots[0].defaultIndex = 0;
+          }, 100);
+        });
+      },
+      components:{
+          addresscom
       }
     }
 </script>
@@ -338,6 +438,43 @@
       img
         width 100%
         display block
+  .address-detail
+    position fixed
+    z-index 1100
+    bottom 0
+    left 0
+    height 220px
+    width 100%
+    background-color white
+    .address-header
+      border-bottom 1px solid #dcdcdc
+      button
+        height 40px
+        font-size 17px
+        color #26a2ff
+        line-height 35px
+      .button-left
+        padding-left 30px
+      .button-right
+        padding-left 230px
+    .address-components
+      height 180px
+  .blackwindow-enter-active, .blackwindow-leave-active
+    transition opacity .1s linear
+  .blackwindow-enter, .blackwindow-leave-to
+    opacity 0
+  .black-window
+    position fixed
+    left 0
+    top 0
+    z-index 1050
+    width 100%
+    height 667px
+    background-color rgba(0,0,0,.5)
+  .address-enter-active, .address-leave-active
+    transition opacity .1s linear
+  .address-enter, .address-leave-to
+    opacity 0
   .detail-app-footer
     z-index 1200
     position fixed
