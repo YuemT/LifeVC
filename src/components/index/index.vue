@@ -3,8 +3,10 @@
     <!--头部header-->
     <div class="index-header">
       <div class="header-title">
-        <span class="head-type">
-        </span>
+        <router-link to="/allproduct">
+          <span class="head-type">
+          </span>
+        </router-link>
       </div>
       <!--nav导航-->
         <mt-navbar class="page-part" v-model="selected" id="navbar">
@@ -85,10 +87,7 @@
       kitchen
     },
     methods:{
-      jumpToDetail () {
-        //alert('jumpToDetail ()')
-        //发送请求，跳转页面
-  }
+
     }
   }
 </script>

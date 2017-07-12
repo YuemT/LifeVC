@@ -25,19 +25,34 @@
         <div class="recommend-header">
           Rico.S为你精心推荐
         </div>
-        <recommend></recommend>
-        <recommend></recommend>
-        <recommend></recommend>
-        <recommend></recommend>
-        <recommend></recommend>
-        <recommend></recommend>
+        <!--<recommend></recommend>-->
+        <!--<recommend></recommend>-->
+        <!--<recommend></recommend>-->
+        <!--<recommend></recommend>-->
+        <!--<recommend></recommend>-->
+        <!--<recommend></recommend>-->
+        <mt-navbar v-model="selected">
+          <mt-tab-item id="1"><recommend></recommend></mt-tab-item>
+          <mt-tab-item id="2"><recommend></recommend></mt-tab-item>
+          <mt-tab-item id="3"><recommend></recommend></mt-tab-item>
+        </mt-navbar>
       </div>
     </div>
 </template>
 
 <script>
+    import Vue from 'vue'
+    import { Navbar, TabItem } from 'mint-ui';
+
+    Vue.component(Navbar.name, Navbar);
+    Vue.component(TabItem.name, TabItem);
     import recommend from '../recommend/recommend.vue'
     export default{
+      data(){
+        return {
+          selected:'1'
+        }
+      },
       components:{
           recommend
       }
@@ -134,7 +149,6 @@
 
 
   .recommend
-    //width 800%
     background-color white
     height 219px
     white-space nowrap
