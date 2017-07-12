@@ -35,13 +35,29 @@
         </span>
       </div>
     </div>
+    <!--app安装提示-->
+    <div class="index-app-footer" v-show="isShow">
+      <span class="close-icon" @click="closeIcon"></span>
+      <img class="downloadTop" src="./image/downloadTop.png" alt="">
+      <img class="downloadBottom" src="./image/downloadBottom.png" alt="">
+    </div>
   </div>
 </template>
 
 <script>
 import '../static/reset.css'
 export default {
-  name: 'app'
+  name: 'app',
+  data(){
+    return {
+        isShow: true
+    }
+  },
+  methods:{
+    closeIcon () {
+      this.isShow = !this.isShow
+    }
+  }
 }
 </script>
 
@@ -94,4 +110,26 @@ html
           background-size 29%
           background-position 50%
           background-repeat no-repeat
+    .index-app-footer
+      //height 65px
+      position fixed
+      left 0
+      bottom 53px
+      width 375px
+      .downloadBottom
+        width 100%
+      .downloadTop
+        display block
+        width 15.5%
+        position absolute
+        left 18px
+        top -42px
+      .close-icon
+        width 26px
+        height 24px
+        display block
+        position absolute
+        top 0
+        right 0
+
 </style>

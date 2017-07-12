@@ -34,6 +34,7 @@
         </mt-tab-container-item>
       </mt-tab-container>
     </div>
+
   </div>
 
 </template>
@@ -117,4 +118,9 @@
       margin-bottom 53px
       .mt-tab-container
         padding-top 94px
+
+
+
+
+
 </style>
