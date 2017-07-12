@@ -65,6 +65,10 @@ export default {
 html
   background-color #f2f2f2
   font-family Microsoft YaHei,Helvetica,STHeiti,Droid Sans Fallback
+  input
+    outline none
+  button
+    outline none
   #app
     width 100%
     height 100%
