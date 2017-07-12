@@ -9,7 +9,8 @@
         </router-link>
       </div>
       <!--nav导航-->
-        <mt-navbar class="page-part" v-model="selected" id="navbar">
+      <div ref="navbar" class="nav-bar">
+        <mt-navbar class="page-part" v-model="selected">
           <mt-tab-item id="1"><span>首页</span></mt-tab-item>
           <mt-tab-item id="2"><span>新品</span></mt-tab-item>
           <mt-tab-item id="3"><span>家务</span></mt-tab-item>
@@ -21,6 +22,7 @@
           <mt-tab-item id="9"><span>工作和旅行</span></mt-tab-item>
           <mt-tab-item id="10"><span>了解LifeVC</span></mt-tab-item>
         </mt-navbar>
+      </div>
     </div>
     <!--首页选项卡-->
     <div class="index-tab">
@@ -54,6 +56,7 @@
 </template>
 
 <script>
+  import BScroll from 'better-scroll'
   import indextab from '../indextab/indextab.vue'
   import { TabContainer, TabContainerItem } from 'mint-ui';
 
@@ -86,8 +89,20 @@
       housework,
       kitchen
     },
+    created () {
+      Vue.nextTick(()=>{
+        this._initScroll()
+      })
+    },
     methods:{
-
+      _initScroll () {
+          new BScroll(this.$refs.navbar,{
+            click: true,
+            scrollX: true,
+            probeType: 3,
+            bounce: true
+          })
+      }
     }
   }
 </script>
@@ -120,21 +135,23 @@
           background-image url("headertype.png")
           background-size 45%
           background-repeat no-repeat
-      .page-part
-        padding-bottom 2px
-        span
-          display inline-block
+      .nav-bar
+        height 45px
+      .mint-navbar
+        width 800px
+        .mint-tab-item
           width 80px
-          color #333
-          font-size 14px
+        .page-part
+          height 100%
+          padding-bottom 2px
+          span
+            height 100%
+            display inline-block
+            width 80px
+            color #333
+            font-size 14px
     .index-tab
       margin-top 94px
-      margin-bottom 53px
       .mt-tab-container
         padding-top 94px
-
-
-
-
-
 </style>

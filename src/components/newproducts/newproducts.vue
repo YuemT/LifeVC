@@ -31,16 +31,10 @@
 
 <style lang="stylus" rel="stylesheet/stylus">
  .new-products-wrap
-    //margin-top 94px
-    //margin-bottom 53px
-    //padding-top 96px
    .week-products,.month-products
       .text
         height 38px
         font-size 19px
         line-height 38px
         text-align center
-
-
-
 </style>

@@ -7,7 +7,7 @@
         购物车
       </div>
       <div class="shopcart-sign-in">
-        <div class="sign-in">登录</div>
+        <router-link to="/login"><div class="sign-in">登录</div></router-link>
         <span>你可以在登录后同步电脑与手机购物车中的商品</span>
       </div>
       <div class="shopcart-input">
@@ -25,17 +25,15 @@
         <div class="recommend-header">
           Rico.S为你精心推荐
         </div>
-        <!--<recommend></recommend>-->
-        <!--<recommend></recommend>-->
-        <!--<recommend></recommend>-->
-        <!--<recommend></recommend>-->
-        <!--<recommend></recommend>-->
-        <!--<recommend></recommend>-->
-        <mt-navbar v-model="selected">
-          <mt-tab-item id="1"><recommend></recommend></mt-tab-item>
-          <mt-tab-item id="2"><recommend></recommend></mt-tab-item>
-          <mt-tab-item id="3"><recommend></recommend></mt-tab-item>
-        </mt-navbar>
+        <div ref="recommend" class="recommend-ref">
+          <mt-navbar v-model="selected" class="recommend-item">
+            <mt-tab-item id="1"><recommend></recommend></mt-tab-item>
+            <mt-tab-item id="2"><recommend></recommend></mt-tab-item>
+            <mt-tab-item id="3"><recommend></recommend></mt-tab-item>
+            <mt-tab-item id="4"><recommend></recommend></mt-tab-item>
+            <mt-tab-item id="5"><recommend></recommend></mt-tab-item>
+          </mt-navbar>
+        </div>
       </div>
     </div>
 </template>
@@ -43,6 +41,7 @@
 <script>
     import Vue from 'vue'
     import { Navbar, TabItem } from 'mint-ui';
+    import BScroll from 'better-scroll'
 
     Vue.component(Navbar.name, Navbar);
     Vue.component(TabItem.name, TabItem);
@@ -55,6 +54,21 @@
       },
       components:{
           recommend
+      },
+      created () {
+        Vue.nextTick(()=>{
+          this._initScroll()
+        })
+      },
+      methods:{
+        _initScroll () {
+          new BScroll(this.$refs.recommend,{
+            click: true,
+            scrollX: true,
+            probeType: 3,
+            bounce: true
+          })
+        }
       }
     }
 </script>
@@ -149,13 +163,19 @@
 
 
   .recommend
+    overflow hidden
     background-color white
     height 219px
-    white-space nowrap
-    overflow hidden
     .recommend-header
       height 24px
       line-height 24px
       padding 9px 11px
       border-bottom 1px solid #ccc
+    .mint-navbar
+      width 575px
+      .recommend-ref
+        overflow hidden
+        width 100%
+
+
 </style>

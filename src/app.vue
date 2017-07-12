@@ -70,8 +70,6 @@ html
   button
     outline none
   #app
-    width 100%
-    height 100%
     .tab
       width 100%
       height 54px
@@ -116,7 +114,6 @@ html
           background-position 50%
           background-repeat no-repeat
     .index-app-footer
-      //height 65px
       position fixed
       left 0
       bottom 53px
