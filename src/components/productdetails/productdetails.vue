@@ -101,6 +101,12 @@
           <img src="./detail-12.jpg" alt="">
         </div>
       </div>
+      <!--app安装提示-->
+      <div class="detail-app-footer" v-show="isShow">
+        <span class="close-icon" @click="closeIcon"></span>
+        <img class="downloadTop" src="./downloadTop.png" alt="">
+        <img class="downloadBottom" src="./downloadBottom.png" alt="">
+      </div>
       <div class="product-footer">
         <span class="kefu">客服</span>
         <span class="shouye">首页</span>
@@ -119,7 +125,16 @@
     Vue.component(Swipe.name, Swipe);
     Vue.component(SwipeItem.name, SwipeItem);
     export default{
-
+      data(){
+        return {
+          isShow: true
+        }
+      },
+      methods:{
+        closeIcon () {
+          this.isShow = !this.isShow
+        }
+      }
     }
 </script>
 
@@ -313,6 +328,28 @@
       img
         width 100%
         display block
+  .detail-app-footer
+    z-index 1200
+    position fixed
+    left 0
+    bottom 47px
+    width 375px
+    .downloadBottom
+      width 100%
+    .downloadTop
+      display block
+      width 15.5%
+      position absolute
+      left 18px
+      top -42px
+    .close-icon
+      width 26px
+      height 24px
+      display block
+      position absolute
+      top 0
+      right 0
+
   .product-footer
     height 38px
     width 100%

@@ -6,6 +6,7 @@ import shopcart from '../components/shopcart/shopcart.vue'
 import shopping from '../components/shopping/shopping.vue'
 import usercenter from '../components/usercenter/usercenter.vue'
 import productdetails from '../components/productdetails/productdetails.vue'
+import loginandregister from '../components/loginandregister/loginandregister.vue'
 
 Vue.use(Router)
 
@@ -39,6 +40,14 @@ export default new Router({
     {
       path: '/item',
       component: productdetails
-    }
+    },
+    {
+      path: '/login',
+      component: loginandregister
+    },
+    {
+      path: '/register',
+      component: loginandregister
+    },
   ]
 })

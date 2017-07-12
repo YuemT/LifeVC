@@ -7,9 +7,9 @@
       <div class="prompt">
         <span class="not-yet">您还未登录</span>
         <div class="choose">
-          <a href="">登录</a>
+          <router-link to="/login"><a href="">登录</a></router-link>
           <span>|</span>
-          <a href="">注册</a>
+          <router-link to="/register"><a href="">注册</a></router-link>
         </div>
       </div>
       <div class="user-list">
