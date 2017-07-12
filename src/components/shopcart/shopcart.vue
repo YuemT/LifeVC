@@ -134,9 +134,11 @@
 
 
   .recommend
-    width 800%
+    //width 800%
     background-color white
     height 219px
+    white-space nowrap
+    overflow hidden
     .recommend-header
       height 24px
       line-height 24px

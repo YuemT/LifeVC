@@ -33,6 +33,18 @@
           <newproducts></newproducts>
         </mt-tab-container-item>
       </mt-tab-container>
+
+      <mt-tab-container v-model="selected">
+        <mt-tab-container-item id="3">
+          <housework></housework>
+        </mt-tab-container-item>
+      </mt-tab-container>
+
+      <mt-tab-container v-model="selected">
+        <mt-tab-container-item id="4">
+          <kitchen></kitchen>
+        </mt-tab-container-item>
+      </mt-tab-container>
     </div>
 
   </div>
@@ -50,6 +62,8 @@
   import {Navbar, TabItem} from 'mint-ui';
   import 'mint-ui/lib/style.css'
   import newproducts from '../newproducts/newproducts.vue'
+  import housework from '../housework/housework.vue'
+  import kitchen from '../kitchen/kitchen.vue'
 
   Vue.component(Navbar.name, Navbar);
   Vue.component(TabItem.name, TabItem);
@@ -66,7 +80,9 @@
     },
     components:{
       newproducts,
-      indextab
+      indextab,
+      housework,
+      kitchen
     },
     methods:{
       jumpToDetail () {
@@ -106,11 +122,10 @@
           background-size 45%
           background-repeat no-repeat
       .page-part
-        width 250%
         padding-bottom 2px
         span
           display inline-block
-          //width 80px
+          width 80px
           color #333
           font-size 14px
     .index-tab
