@@ -61,9 +61,9 @@
         <div class="product-num">
           <span class="number">数量:</span>
           <div class="product-num-item">
-            <span class="product-num-plus">－</span>
-            <span class="product-number">1</span>
-            <span class="product-num-minus">＋</span>
+            <span class="product-num-plus" @click="addNum(false)">－</span>
+            <span class="product-number">{{num}}</span>
+            <span class="product-num-minus" @click="addNum(true)">＋</span>
           </div>
         </div>
         <!--运费-->
@@ -127,12 +127,22 @@
     export default{
       data(){
         return {
-          isShow: true
+          isShow: true,
+          num: 1
         }
       },
       methods:{
         closeIcon () {
           this.isShow = !this.isShow
+        },
+        addNum(isAdd) {
+          if(isAdd){
+            this.num++
+          }else{
+            if(this.num != 1){
+              this.num--
+            }
+          }
         }
       }
     }

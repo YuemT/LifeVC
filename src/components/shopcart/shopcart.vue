@@ -19,7 +19,7 @@
           <img src="./shop-cart.png" alt="">
         </div>
         <p>您的购物车还是空荡荡的</p>
-        <button>赶紧去逛逛</button>
+        <router-link to="/"><button>赶紧去逛逛</button></router-link>
       </div>
       <div class="recommend">
         <div class="recommend-header">
