@@ -7,6 +7,7 @@ import shopping from '../components/shopping/shopping.vue'
 import usercenter from '../components/usercenter/usercenter.vue'
 import productdetails from '../components/productdetails/productdetails.vue'
 import loginandregister from '../components/loginandregister/loginandregister.vue'
+import aboutlifevc from '../components/aboutlifevc/aboutlifevc.vue'
 
 Vue.use(Router)
 
@@ -49,5 +50,9 @@ export default new Router({
       path: '/register',
       component: loginandregister
     },
+    {
+      path: '/aboutlifevc',
+      component: aboutlifevc
+    }
   ]
 })

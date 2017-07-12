@@ -77,11 +77,6 @@
 .shopcart
   position relative
   .shopcart-header
-    img
-      position absolute
-      left 12px
-      top 14px
-      width 12px
     height 48px
     width 100%
     background-color #89be48
@@ -89,6 +84,11 @@
     font-size 21px
     text-align center
     line-height 48px
+    img
+      position absolute
+      left 12px
+      top 14px
+      width 12px
   .shopcart-sign-in
     height 34px
     padding 10px
@@ -163,9 +163,9 @@
 
 
   .recommend
-    overflow hidden
     background-color white
     height 219px
+    overflow hidden
     .recommend-header
       height 24px
       line-height 24px

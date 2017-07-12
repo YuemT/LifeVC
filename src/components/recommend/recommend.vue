@@ -18,7 +18,7 @@
     background-color white
     width 96px
     height 144px
-    margin 0 5px 0 14px
+    margin-left 10px
     font-size 12px
     line-height 16px
     text-overflow ellipsis

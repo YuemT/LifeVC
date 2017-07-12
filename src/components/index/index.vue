@@ -20,7 +20,9 @@
           <mt-tab-item id="7"><span>软装</span></mt-tab-item>
           <mt-tab-item id="8"><span>床品</span></mt-tab-item>
           <mt-tab-item id="9"><span>工作和旅行</span></mt-tab-item>
-          <mt-tab-item id="10"><span>了解LifeVC</span></mt-tab-item>
+          <mt-tab-item id="10">
+            <router-link to="aboutlifevc"><span>了解LifeVC</span></router-link>
+          </mt-tab-item>
         </mt-navbar>
       </div>
     </div>
@@ -49,6 +51,36 @@
           <kitchen></kitchen>
         </mt-tab-container-item>
       </mt-tab-container>
+
+      <mt-tab-container v-model="selected">
+        <mt-tab-container-item id="5">
+          <homeclothes></homeclothes>
+        </mt-tab-container-item>
+      </mt-tab-container>
+
+      <mt-tab-container v-model="selected">
+        <mt-tab-container-item id="6">
+          <life></life>
+        </mt-tab-container-item>
+      </mt-tab-container>
+
+      <mt-tab-container v-model="selected">
+        <mt-tab-container-item id="7">
+          <life></life>
+        </mt-tab-container-item>
+      </mt-tab-container>
+
+      <mt-tab-container v-model="selected">
+        <mt-tab-container-item id="8">
+          <life></life>
+        </mt-tab-container-item>
+      </mt-tab-container>
+
+      <mt-tab-container v-model="selected">
+        <mt-tab-container-item id="9">
+          <life></life>
+        </mt-tab-container-item>
+      </mt-tab-container>
     </div>
 
   </div>
@@ -69,6 +101,8 @@
   import newproducts from '../newproducts/newproducts.vue'
   import housework from '../housework/housework.vue'
   import kitchen from '../kitchen/kitchen.vue'
+  import homeclothes from '../homeclothes/homeclothes.vue'
+  import life from '../life/life.vue'
 
   Vue.component(Navbar.name, Navbar);
   Vue.component(TabItem.name, TabItem);
@@ -87,7 +121,9 @@
       newproducts,
       indextab,
       housework,
-      kitchen
+      kitchen,
+      homeclothes,
+      life
     },
     created () {
       Vue.nextTick(()=>{
