@@ -81,7 +81,7 @@
         <div class="product-information">
           <ul>
             <li><span class="product-information-active">商品介绍</span></li>
-            <li><span>规格参数</span></li>
+            <li><span v-bind:class="{productInformationActive:isActive}" @click="changeStyle">规格参数</span></li>
             <li><span>评论(0)</span></li>
           </ul>
         </div>
@@ -193,7 +193,19 @@
           addressProvince: '省',
           addressCity: '市',
           addressXian: '区',
-          addressStreet: '街道'
+          addressStreet: '街道',
+          productInformationActive:{
+            lineHeight:'26px',
+            display: 'block',
+            backgroundColor: '#89be48',
+            width: '76px',
+            height: '26px',
+            margin: '8px auto',
+            borderRadius: '20px',
+            color:'white',
+            fontSize:'15px'
+          },
+          isActive:false
         }
       },
       methods:{
