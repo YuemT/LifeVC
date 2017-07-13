@@ -24,6 +24,7 @@
         <input type="text" placeholder="请输入手机号" v-model="phonenumber">
         <input type="password" placeholder="请设置6-20位密码,包含字母、数字或符号">
         <input type="text" placeholder="请输入图形验证码">
+        <img src="./NewVerifyCode.jpg" alt="">
         <input type="text" placeholder="请输入手机验证码">
         <button class="get-key">获取验证码</button>
         <p>遇到问题？请<a href="">联系客服</a></p>
@@ -156,7 +157,14 @@
           background-color #8a8a8a
           opacity .5
 
+    .loginandregister-footer
+      h1
+        height 84px
+        line-height 84px
     .loginandregister-footer2
+      h1
+        height 52px
+        line-height 84px
       p
         padding 10px 0
         font-size 14px
@@ -176,4 +184,9 @@
         color #3aad36
         background-color rgba(0,0,0,0)
 
+      img
+        position absolute
+        width 20%
+        right 40px
+        top 198px
 </style>
