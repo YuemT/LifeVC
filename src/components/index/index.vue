@@ -191,6 +191,10 @@
             display inline-block
             width 80px
             font-size 14px
+      .mint-navbar .mint-tab-item.is-selected
+        border-bottom 2px solid #89be48
+        color #80b532
+        margin-bottom -2px
     .index-tab
       margin-top 94px
       .mt-tab-container

@@ -101,8 +101,6 @@
         background-size 50%
         background-repeat no-repeat
         background-position center
-
-
     .loginandregister-footer,.loginandregister-footer2
       position relative
       height 526px
