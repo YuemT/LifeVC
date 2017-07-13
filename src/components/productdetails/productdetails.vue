@@ -42,7 +42,7 @@
         <div class="size-and-color">
           <div class="size-and-color-item">
             <span>规格:</span>
-            <div class="product-size">
+            <div class="product-size-1">
               分隔式
             </div>
             <div class="product-size">
@@ -384,13 +384,22 @@
         .product-size
           margin-right 8px
           float left
-          //width 42px
+          height 38px
+          padding 0 8px
+          font-size 14px
+          color #83b842
+          line-height 38px
+          text-align center
+          border 1px solid #83b842
+        .product-size-1
+          margin-right 8px
+          float left
           height 38px
           padding 0 8px
           font-size 14px
           line-height 38px
           text-align center
-          border 1px solid #83b842
+          border 1px solid #ccc
         .product-color
           width 48px
           height 48px
@@ -408,7 +417,7 @@
       font-size 13px
       height 27px
       padding-left 7px
-      line-height 27px
+      line-height 25px
       .number
         margin-right 10px
       span

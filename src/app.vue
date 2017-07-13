@@ -5,34 +5,44 @@
     <!--底部tab区域-->
     <div class="tab">
       <div class="tab-item">
-        <div class="icon icon-home"></div>
-        <span>
-          <router-link to="/index">首页</router-link>
-        </span>
+        <router-link to="/index">
+          <div class="icon icon-home"></div>
+          <span>
+            首页
+          </span>
+        </router-link>
       </div>
       <div class="tab-item">
-        <div class="icon icon-type"></div>
-        <span>
-          <router-link to="/allproduct">全部商品</router-link>
-        </span>
+        <router-link to="/allproduct">
+          <div class="icon icon-type"></div>
+          <span>
+            全部商品
+          </span>
+        </router-link>
       </div>
       <div class="tab-item">
-        <div class="icon icon-nav"></div>
-        <span>
-          <router-link to="/shopping">闲逛</router-link>
-        </span>
+        <router-link to="/shopping">
+          <div class="icon icon-nav"></div>
+          <span>
+           闲逛
+          </span>
+        </router-link>
       </div>
       <div class="tab-item">
-        <div class="icon icon-shopping"></div>
-        <span>
-          <router-link to="/shopcart">购物车</router-link>
-        </span>
+        <router-link to="/shopcart">
+          <div class="icon icon-shopping"></div>
+          <span>
+            购物车
+          </span>
+        </router-link>
       </div>
       <div class="tab-item">
-        <div class="icon icon-user"></div>
-        <span>
-          <router-link to="/usercenter">账户中心</router-link>
-        </span>
+        <router-link to="/usercenter">
+          <div class="icon icon-user"></div>
+          <span>
+            账户中心
+          </span>
+        </router-link>
       </div>
     </div>
     <!--app安装提示-->
@@ -89,7 +99,7 @@ html
           width 100%
           height 33px
         .icon-home
-          background-image url("./image/home.png")
+          background-image url("./image/home-1.png")
           background-size 29%
           background-position 50%
           background-repeat no-repeat
@@ -113,6 +123,16 @@ html
           background-size 29%
           background-position 50%
           background-repeat no-repeat
+        .active .icon-home
+          background-image url('./image/home.png')
+        .active .icon-type
+          background-image url('./image/type-1.png')
+        .active .icon-nav
+          background-image url('./image/nav-1.png')
+        .active .icon-shopping
+          background-image url('./image/shopcart-1.png')
+        .active .icon-user
+          background-image url('./image/user-1.png')
     .index-app-footer
       position fixed
       left 0

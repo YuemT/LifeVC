@@ -39,7 +39,6 @@
     background-color white
     position absolute
     z-index 100
-
     .aboutlifevc-header
       position fixed
       height 48px
