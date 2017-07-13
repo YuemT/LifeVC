@@ -57,8 +57,7 @@
       <div class="my-order list-style">
         <ul>
           <li class="list-style-item">
-            <a href="">
-              <span class="item-left"></span>
+            <a href="" class="item-left-1">
               <p class="item-text">我的订单</p>
               <span class="item-right-text"></span>
             </a>
@@ -68,23 +67,20 @@
       <div class="my-prefer list-style">
         <ul>
           <li class="list-style-item">
-            <a href="">
-              <span class="item-left"></span>
-              <p class="item-text">我的订单</p>
+            <a href="" class="item-left-2">
+              <p class="item-text">我的优惠券</p>
               <span class="item-right-text"></span>
             </a>
           </li>
           <li class="list-style-item">
-            <a href="">
-              <span class="item-left"></span>
-              <p class="item-text">我的订单</p>
+            <a href="" class="item-left-3">
+              <p class="item-text">现金积分</p>
               <span class="item-right-text"></span>
             </a>
           </li>
           <li class="list-style-item">
-            <a href="">
-              <span class="item-left"></span>
-              <p class="item-text">我的订单</p>
+            <a href="" class="item-left-4">
+              <p class="item-text">关于发票</p>
               <span class="item-right-text"></span>
             </a>
           </li>
@@ -93,37 +89,32 @@
       <div class="my-info list-style">
         <ul>
           <li class="list-style-item">
-            <a href="">
-              <span class="item-left"></span>
-              <p class="item-text">我的订单</p>
+            <a href="" class="item-left-5">
+              <p class="item-text">密码和登录信息</p>
               <span class="item-right-text"></span>
             </a>
           </li>
           <li class="list-style-item">
-            <a href="">
-              <span class="item-left"></span>
-              <p class="item-text">我的订单</p>
+            <a href="" class="item-left-6">
+              <p class="item-text">老会员建议</p>
               <span class="item-right-text"></span>
             </a>
           </li>
           <li class="list-style-item">
-            <a href="">
-              <span class="item-left"></span>
-              <p class="item-text">我的订单</p>
+            <a href="" class="item-left-7">
+              <p class="item-text">客户服务</p>
               <span class="item-right-text"></span>
             </a>
           </li>
           <li class="list-style-item">
-            <a href="">
-              <span class="item-left"></span>
-              <p class="item-text">我的订单</p>
+            <a href="" class="item-left-8">
+              <p class="item-text">地址管理</p>
               <span class="item-right-text"></span>
             </a>
           </li>
           <li class="list-style-item">
-            <a href="">
-              <span class="item-left"></span>
-              <p class="item-text">我的订单</p>
+            <a href="" class="item-left-9">
+              <p class="item-text">手机验证</p>
               <span class="item-right-text"></span>
             </a>
           </li>
@@ -231,10 +222,9 @@
           display block
           height 60px
           background-color white
-          background-image url("./icon-a.png")
           background-repeat no-repeat
           background-size 30px 30px
-          background-position 20px 15px
+          background-position 14px 15px
           line-height 60px
           font-size 14px
           color #585858
@@ -251,6 +241,25 @@
             border-right 2px solid #bbb
             border-bottom 2px solid #bbb
             transform rotate(-45deg)
+        .item-left-1
+          background-image url("./icon-a.png")
+        .item-left-2
+          background-image url("./icon-b.png")
+        .item-left-3
+          background-image url("./icon-c.png")
+        .item-left-4
+          background-image url("./icon-d.png")
+        .item-left-5
+          background-image url("./icon-e.png")
+        .item-left-6
+          background-image url("./icon-f.png")
+        .item-left-7
+          background-image url("./icon-g.png")
+        .item-left-8
+          background-image url("./icon-h.png")
+        .item-left-9
+          background-image url("./icon-i.png")
+
 
 
 
