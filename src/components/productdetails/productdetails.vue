@@ -81,7 +81,7 @@
         <div class="product-information">
           <ul>
             <li><span class="product-information-active">商品介绍</span></li>
-            <li><span v-bind:class="{productInformationActive:isActive}" @click="changeStyle">规格参数</span></li>
+            <li><span v-bind:class="{productInformationActive:isActive}">规格参数</span></li>
             <li><span>评论(0)</span></li>
           </ul>
         </div>

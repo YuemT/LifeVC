@@ -180,11 +180,14 @@
         .page-part
           height 100%
           padding-bottom 2px
+          color #333
+          font-size 14px
+        a
+          color #333
           span
             height 100%
             display inline-block
             width 80px
-            color #333
             font-size 14px
     .index-tab
       margin-top 94px

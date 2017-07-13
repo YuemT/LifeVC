@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="index-tab-wrap">
     <!--轮播图-->
     <mt-swipe :auto="4000" class="swipeImg">
       <mt-swipe-item>
@@ -66,6 +66,60 @@
         <area data-v-46782024="" shape="rect" coords="281,170,375,294">
       </map>
     </div>
+    <div class="item-combo">
+      <img src="./oneyear.jpg" width="100%" alt="Planets" usemap="#planetmap6">
+      <map data-v-46782024="" name="planetmap6" id="planetmap6">
+        <area data-v-46782024="" shape="rect" coords="0,2,375,101">
+      </map>
+    </div>
+    <div class="item-combo">
+      <img src="./combo-1.jpg" width="100%" alt="Planets" usemap="#planetmap7">
+      <map data-v-46782024="" name="planetmap7" id="planetmap7">
+        <area data-v-46782024="" shape="rect" coords="0,2,375,101">
+      </map>
+    </div>
+    <div class="item-combo">
+      <img src="./combo-2.jpg" width="100%" alt="Planets" usemap="#planetmap8">
+      <map data-v-46782024="" name="planetmap8" id="planetmap8">
+        <area data-v-46782024="" shape="rect" coords="0,2,375,101">
+      </map>
+    </div>
+    <div class="item-combo">
+      <img src="./combo-3.jpg" width="100%" alt="Planets" usemap="#planetmap9">
+      <map data-v-46782024="" name="planetmap9" id="planetmap9">
+        <area data-v-46782024="" shape="rect" coords="0,2,375,101">
+      </map>
+    </div>
+    <div class="item-combo">
+      <img src="./combo-4.jpg" width="100%" alt="Planets" usemap="#planetmap10">
+      <map data-v-46782024="" name="planetmap10" id="planetmap10">
+        <area data-v-46782024="" shape="rect" coords="0,2,375,101">
+      </map>
+    </div>
+    <div class="item-combo">
+      <img src="./about.jpg" width="100%" alt="Planets" usemap="#planetmap11">
+      <map data-v-46782024="" name="planetmap11" id="planetmap11">
+        <area data-v-46782024="" shape="rect" coords="0,2,375,101">
+      </map>
+    </div>
+    <div class="item-combo">
+      <img src="./buyfree.jpg" width="100%" alt="Planets" usemap="#planetmap12">
+      <map data-v-46782024="" name="planetmap12" id="planetmap12">
+        <area data-v-46782024="" shape="rect" coords="0,2,375,101">
+      </map>
+    </div>
+    <div class="item-combo">
+      <img src="./hotsale.jpg" width="100%" alt="Planets" usemap="#planetmap13">
+      <map data-v-46782024="" name="planetmap13" id="planetmap13">
+        <area data-v-46782024="" shape="rect" coords="0,2,375,101">
+      </map>
+    </div>
+    <div class="item-combo">
+      <img src="./hotsale-1.jpg" width="100%" alt="Planets" usemap="#planetmap14">
+      <map data-v-46782024="" name="planetmap14" id="planetmap14">
+        <area data-v-46782024="" shape="rect" coords="0,2,375,101">
+      </map>
+    </div>
   </div>
 </template>
 
@@ -76,8 +130,11 @@
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">
+.index-tab-wrap
+  background-color white
   .swipeImg
     height 250px
     img
       width 100%
+      border 0
 </style>
