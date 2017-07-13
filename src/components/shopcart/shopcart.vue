@@ -27,7 +27,8 @@
         </div>
         <div ref="recommend" class="recommend-ref">
           <mt-navbar v-model="selected" class="recommend-item">
-            <mt-tab-item id="1"><recommend></recommend></mt-tab-item>
+            <router-link to="/item"><mt-tab-item id="1"><recommend></recommend></mt-tab-item></router-link>
+
             <mt-tab-item id="2"><recommend></recommend></mt-tab-item>
             <mt-tab-item id="3"><recommend></recommend></mt-tab-item>
             <mt-tab-item id="4"><recommend></recommend></mt-tab-item>

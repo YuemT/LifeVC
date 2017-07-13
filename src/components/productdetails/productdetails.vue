@@ -100,6 +100,34 @@
           <img src="./detail-11.jpg" alt="">
           <img src="./detail-12.jpg" alt="">
         </div>
+        <!--会员使用评论-->
+        <div class="user-common">
+          <p class="user-common-header">用户使用评论&nbsp;:&nbsp;(11条)</p>
+          <div class="user-common-detail">
+            <p>河南 136*****536&nbsp;<span>玛瑙会员&nbsp;累计购物:&nbsp;112</span></p>
+            <p>质量不错，也好看，就是有点小</p>
+            <span>2017-07-12&nbsp;&nbsp;规格:分隔式&nbsp;颜色:咖啡色</span>
+          </div>
+          <div class="user-common-detail">
+            <p>河南 136*****536&nbsp;<span>玛瑙会员&nbsp;累计购物:&nbsp;112</span></p>
+            <p>质量不错，也好看，就是有点小</p>
+            <span>2017-07-12&nbsp;&nbsp;规格:分隔式&nbsp;颜色:咖啡色</span>
+          </div>
+          <div class="user-common-detail">
+            <p>河南 136*****536&nbsp;<span>玛瑙会员&nbsp;累计购物:&nbsp;112</span></p>
+            <p>质量不错，也好看，就是有点小</p>
+            <span>2017-07-12&nbsp;&nbsp;规格:分隔式&nbsp;颜色:咖啡色</span>
+          </div>
+          <div class="user-common-detail">
+            <p>河南 136*****536&nbsp;<span>玛瑙会员&nbsp;累计购物:&nbsp;112</span></p>
+            <p>质量不错，也好看，就是有点小</p>
+            <span>2017-07-12&nbsp;&nbsp;规格:分隔式&nbsp;颜色:咖啡色</span>
+          </div>
+          <div class="see-more">
+            查看更多
+          </div>
+        </div>
+
       </div>
       <!--app安装提示-->
       <div class="detail-app-footer" v-show="isShow">
@@ -125,6 +153,7 @@
       <transition name="blackwindow">
         <div class="black-window" v-show="showAdress"></div>
       </transition>
+      <!--底部footer-->
       <div class="product-footer">
         <span class="kefu">客服</span>
         <router-link to="/"><span class="shouye">首页</span></router-link>
@@ -267,7 +296,7 @@
   left 0
   z-index 1000
   .product-details
-    padding-bottom 70px
+    padding-bottom 52px
     background-color white
     .product-details-header
       position fixed
@@ -483,6 +512,27 @@
     width 100%
     height 667px
     background-color rgba(0,0,0,.5)
+  .user-common
+    .user-common-header
+      height 26px
+      border-top 6px solid #ddd
+      line-height 26px
+    .user-common-detail
+      height 60px
+      padding 10px 0 10px 5px
+      font-size 12px
+      line-height 20px
+      p
+        color
+      span
+        color silver
+    .see-more
+      margin-top 10px
+      text-align center
+      height 51px
+      line-height 51px
+      border-top 1px solid rgb(242, 242, 242)
+
   .address-enter-active, .address-leave-active
     transition opacity .1s linear
   .address-enter, .address-leave-to
