@@ -7,9 +7,9 @@
       <div class="prompt">
         <span class="not-yet">您还未登录</span>
         <div class="choose">
-          <router-link to="/login"><a href="">登录</a></router-link>
+          <router-link to="/login"><a href="">登录&nbsp;&nbsp;</a></router-link>
           <span>|</span>
-          <router-link to="/register"><a href="">注册</a></router-link>
+          <router-link to="/register"><a href="">&nbsp;&nbsp;注册</a></router-link>
         </div>
       </div>
       <div class="user-list">
@@ -137,7 +137,7 @@
       width 100%
       background-color #89be48
       color white
-      font-size 21px
+      font-size 20px
       text-align center
       line-height 48px
       position fixed
@@ -148,7 +148,7 @@
       span
         position absolute
         right 15px
-        font-size 19px
+        font-size 18px
     .prompt
       margin-top 48px
       height 104px
@@ -169,7 +169,7 @@
         margin 6px auto
         border 1px solid #009c42
         line-height 36px
-        font-size 18px
+        font-size 16px
         color #009c42
         background-color rgba(255,255,255,.4)
         border-radius 20px

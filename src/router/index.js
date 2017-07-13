@@ -6,9 +6,11 @@ import shopcart from '../components/shopcart/shopcart.vue'
 import shopping from '../components/shopping/shopping.vue'
 import usercenter from '../components/usercenter/usercenter.vue'
 import productdetails from '../components/productdetails/productdetails.vue'
-import loginandregister from '../components/loginandregister/loginandregister.vue'
 import aboutlifevc from '../components/aboutlifevc/aboutlifevc.vue'
 import addresscom from '../components/addresscom/addresscom.vue'
+import login from '../components/login/login.vue'
+import register from '../components/register/register.vue'
+import setting from '../components/setting/setting.vue'
 
 Vue.use(Router)
 
@@ -45,15 +47,18 @@ export default new Router({
     },
     {
       path: '/login',
-      component: loginandregister
+      component: login
     },
     {
       path: '/register',
-      component: loginandregister
+      component: register
     },
     {
       path: '/aboutlifevc',
       component: aboutlifevc
+    },{
+      path: '/setting',
+      component: setting
     }
   ]
 })

@@ -1,10 +1,10 @@
 <template>
     <div class="loginandregister">
       <div class="loginandregister-header">
-        <router-link to="/"><span class="go-back-icon"></span></router-link>
+        <router-link to="/usercenter"><span class="go-back-icon"></span></router-link>
         <img src="./login-background.png" alt="">
       </div>
-      <div class="loginandregister-footer" v-show="isLog">
+      <div class="loginandregister-footer" v-show="!isShow">
         <h1>老用户登录</h1>
         <input type="text" placeholder="请输入手机号">
         <input type="text" placeholder="请输入登录密码">
@@ -19,7 +19,7 @@
           <button class="register-button" @click="changeIsShow">注&nbsp;&nbsp;&nbsp;&nbsp;册</button>
         </div>
       </div>
-      <div class="loginandregister-footer2" v-show="isLog">
+      <div class="loginandregister-footer2" v-show="isShow">
         <h1>新用户注册</h1>
         <input type="text" placeholder="请输入手机号">
         <input type="text" placeholder="请设置6-20位密码,包含字母、数字或符号">
@@ -28,10 +28,10 @@
         <button class="get-key">获取验证码</button>
         <p>遇到问题？请<a href="">联系客服</a></p>
         <div class="same-style">
-          <button class="login-button" @click="changeIsShow">登&nbsp;&nbsp;&nbsp;&nbsp;录</button>
+          <button class="login-button" @click="changeIsShow">注&nbsp;&nbsp;&nbsp;&nbsp;册</button>
         </div>
         <div class="same-style">
-          <button class="register-button" @click="changeIsShow">注&nbsp;&nbsp;&nbsp;&nbsp;册</button>
+          <button class="register-button" @click="changeIsShow">登&nbsp;&nbsp;&nbsp;&nbsp;录</button>
         </div>
       </div>
     </div>
@@ -39,11 +39,14 @@
 
 <script>
     export default{
-      props:['isLog'],
-
+      data () {
+          return{
+            isShow: true
+          }
+      },
       methods:{
         changeIsShow () {
-            this.isLog = !this.isLog
+            this.isShow = !this.isShow
         }
       }
     }
