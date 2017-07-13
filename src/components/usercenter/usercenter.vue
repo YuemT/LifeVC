@@ -2,7 +2,7 @@
     <div class="usercenter">
       <div class="usercenter-header">
         账户中心
-        <span>设置</span>
+        <router-link to="/setting"><span>设置</span></router-link>
       </div>
       <div class="prompt">
         <span class="not-yet">您还未登录</span>
@@ -149,6 +149,7 @@
         position absolute
         right 15px
         font-size 18px
+        color white
     .prompt
       margin-top 48px
       height 104px
