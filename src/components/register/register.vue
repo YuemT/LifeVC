@@ -7,7 +7,7 @@
       <div class="loginandregister-footer" v-show="!isShow">
         <h1>老用户登录</h1>
         <input type="text" placeholder="请输入手机号">
-        <input type="text" placeholder="请输入登录密码">
+        <input type="password" placeholder="请输入登录密码">
         <button class="forget-password">忘记密码</button>
         <div class="fast-login">
           <p>手机号快捷登录></p>
@@ -21,14 +21,14 @@
       </div>
       <div class="loginandregister-footer2" v-show="isShow">
         <h1>新用户注册</h1>
-        <input type="text" placeholder="请输入手机号">
-        <input type="text" placeholder="请设置6-20位密码,包含字母、数字或符号">
+        <input type="text" placeholder="请输入手机号" v-model="phonenumber">
+        <input type="password" placeholder="请设置6-20位密码,包含字母、数字或符号">
         <input type="text" placeholder="请输入图形验证码">
         <input type="text" placeholder="请输入手机验证码">
         <button class="get-key">获取验证码</button>
         <p>遇到问题？请<a href="">联系客服</a></p>
         <div class="same-style">
-          <button class="login-button" @click="changeIsShow">注&nbsp;&nbsp;&nbsp;&nbsp;册</button>
+          <button class="login-button" @click="checkValue">注&nbsp;&nbsp;&nbsp;&nbsp;册</button>
         </div>
         <div class="same-style">
           <button class="register-button" @click="changeIsShow">登&nbsp;&nbsp;&nbsp;&nbsp;录</button>
@@ -38,15 +38,32 @@
 </template>
 
 <script>
+    import { Toast } from 'mint-ui';
     export default{
       data () {
           return{
-            isShow: true
+            isShow: true,
+            phonenumber:''
           }
       },
       methods:{
         changeIsShow () {
             this.isShow = !this.isShow
+        },
+        checkValue () {
+          if(!this.phonenumber){
+            let instance = Toast('请先输入手机号');
+            setTimeout(() => {
+              instance.close();
+            }, 1000);
+          }else{
+            if(!(/^1[3,4,5,7,8]\d{9}$/.test(this.phonenumber))){
+              let instance = Toast('请输入正确的手机号');
+              setTimeout(() => {
+                instance.close();
+              }, 1000);
+            }
+          }
         }
       }
     }
