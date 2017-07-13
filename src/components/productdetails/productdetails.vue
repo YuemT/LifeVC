@@ -538,7 +538,7 @@
   .address-enter, .address-leave-to
     opacity 0
   .detail-app-footer
-    z-index 1200
+    z-index 1050
     position fixed
     left 0
     bottom 47px
