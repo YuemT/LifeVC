@@ -24,7 +24,8 @@
         <input type="text" placeholder="请输入手机号" v-model="phonenumber">
         <input type="password" placeholder="请设置6-20位密码,包含字母、数字或符号">
         <input type="text" placeholder="请输入图形验证码">
-        <img src="./NewVerifyCode.jpg" alt="">
+        <img class="picture" src="./NewVerifyCode.jpg" alt="">
+        <span class="refresh"></span>
         <input type="text" placeholder="请输入手机验证码">
         <button class="get-key">获取验证码</button>
         <p>遇到问题？请<a href="">联系客服</a></p>
@@ -175,7 +176,7 @@
       .get-key
         position absolute
         right 18px
-        top 246px
+        top 214px
         width 96px
         height 31px
         border 1px solid #3aad36
@@ -183,10 +184,19 @@
         font-size 16px
         color #3aad36
         background-color rgba(0,0,0,0)
-
-      img
+      .picture
         position absolute
-        width 20%
-        right 40px
-        top 198px
+        width 18%
+        right 44px
+        top 167px
+      .refresh
+        display block
+        position absolute
+        top 170px
+        right 18px
+        width 17px
+        height 17px
+        background-image url("./refresh.png")
+        background-position center
+        background-size 100%
 </style>
