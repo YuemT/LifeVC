@@ -16,19 +16,19 @@
         <ul>
           <li class="user-item">
             <a href="">
-              <span class="user-icon"></span>
+              <span class="user-icon-1 user-icon"></span>
               <span class="user-text">待支付</span>
             </a>
           </li>
           <li class="user-item">
             <a href="">
-              <span class="user-icon"></span>
+              <span class="user-icon-2 user-icon"></span>
               <span class="user-text">待发货</span>
             </a>
           </li>
           <li class="user-item right-item">
             <a href="">
-              <span class="user-icon"></span>
+              <span class="user-icon-3 user-icon"></span>
               <span class="user-text">待收货</span>
             </a>
           </li>
@@ -36,19 +36,19 @@
         <ul>
           <li class="user-item">
             <a href="">
-              <span class="user-icon"></span>
+              <span class="user-icon-4 user-icon"></span>
               <span class="user-text">待评论</span>
             </a>
           </li>
           <li class="user-item">
             <a href="">
-              <span class="user-icon"></span>
+              <span class="user-icon-5 user-icon"></span>
               <span class="user-text">待回复</span>
             </a>
           </li>
           <li class="user-item right-item">
             <a href="">
-              <span class="user-icon"></span>
+              <span class="user-icon-6 user-icon"></span>
               <span class="user-text">退换货</span>
             </a>
           </li>
@@ -202,7 +202,7 @@
               display inline-block
               width 60px
               height 30px
-              background-image url("icon-1.png")
+              //background-image url("icon-1.png")
               background-size 71%
               background-position 14px -6px
               background-repeat no-repeat
@@ -210,10 +210,20 @@
               display inline-block
               font-size 12px
               color #585858
+            .user-icon-1
+              background-image url("./icon-1.png")
+            .user-icon-2
+              background-image url("./icon-2.png")
+            .user-icon-3
+              background-image url("./icon-3.png")
+            .user-icon-4
+              background-image url("./icon-4.png")
+            .user-icon-5
+              background-image url("./icon-5.png")
+            .user-icon-6
+              background-image url("./icon-6.png")
         .right-item
-          border-right none
-
-
+          border-right 1px solid white
     .list-style
       margin-bottom 12px
       .list-style-item
@@ -226,7 +236,7 @@
           background-size 30px 30px
           background-position 20px 15px
           line-height 60px
-          font-size 15px
+          font-size 14px
           color #585858
           padding-left 60px
           position relative

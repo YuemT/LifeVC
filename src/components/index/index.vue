@@ -173,6 +173,8 @@
           background-repeat no-repeat
       .nav-bar
         height 45px
+        width 100%
+        background-color white
       .mint-navbar
         width 800px
         .mint-tab-item
