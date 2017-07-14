@@ -27,11 +27,13 @@
         </div>
         <div ref="recommend" class="recommend-ref">
           <mt-navbar v-model="selected" class="recommend-item">
-            <router-link to="/item"><mt-tab-item id="1"><recommend></recommend></mt-tab-item></router-link>
-            <mt-tab-item id="2"><recommend></recommend></mt-tab-item>
-            <mt-tab-item id="3"><recommend></recommend></mt-tab-item>
-            <mt-tab-item id="4"><recommend></recommend></mt-tab-item>
-            <mt-tab-item id="5"><recommend></recommend></mt-tab-item>
+            <mt-tab-item id="1" v-for="(product,index) in shopping.StrollList">
+              <div class="recommend-product">
+                <img src="./recommend-product.jpg" alt="">
+                <p class="title">自粘式缝隙贴(2卷装)</p>
+                <p class="price">￥19</p>
+              </div>
+            </mt-tab-item>
           </mt-navbar>
         </div>
       </div>
@@ -39,26 +41,32 @@
 </template>
 
 <script>
+    import axios from 'axios'
     import Vue from 'vue'
     import { Navbar, TabItem } from 'mint-ui';
     import BScroll from 'better-scroll'
 
     Vue.component(Navbar.name, Navbar);
     Vue.component(TabItem.name, TabItem);
-    import recommend from '../recommend/recommend.vue'
+
     export default{
       data(){
         return {
-          selected:'1'
+          selected:'1',
+          shopping:{}
         }
-      },
-      components:{
-          recommend
       },
       created () {
         Vue.nextTick(()=>{
           this._initScroll()
-        })
+        }),
+        axios.get('/api/shopping')
+          .then(response => {
+            const result = response.data
+            if (result.code === 0) {
+              this.shopping = result.data
+            }
+          })
       },
       methods:{
         _initScroll () {
@@ -171,9 +179,29 @@
       line-height 24px
       padding 9px 11px
       border-bottom 1px solid #ccc
-    .mint-navbar
-      width 575px
-      .recommend-ref
+    .recommend-ref
+      overflow hidden
+      width 100%
+      .mint-navbar
+        width 575px
+      .recommend-product
+        color #333
+        float left
+        background-color white
+        width 96px
+        height 144px
+        margin-left 10px
+        font-size 12px
+        line-height 16px
+        text-overflow ellipsis
+        white-space nowrap
         overflow hidden
-        width 100%
+        img
+          width 96px
+          height 96px
+        .title
+          width 96px
+        .price
+          line-height 28px
+          font-size 14px
 </style>

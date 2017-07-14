@@ -25,15 +25,6 @@
             <li v-for="comfiger in shopping.ConfigerList">
               <span>{{comfiger.Title}}</span>
             </li>
-            <!--<li>-->
-              <!--<span>今日新品</span>-->
-            <!--</li>-->
-            <!--<li>-->
-              <!--<span>送500元积分</span>-->
-            <!--</li>-->
-            <!--<li>-->
-              <!--<span>金币商城</span>-->
-            <!--</li>-->
           </ul>
         </div>
         <div class="shopping-wrap  shopping-wrap-rigth">
