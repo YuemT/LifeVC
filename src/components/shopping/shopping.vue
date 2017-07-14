@@ -39,8 +39,24 @@
 </template>
 
 <script>
+    import axios from 'axios'
     import product from '../product/product.vue'
     export default{
+      data () {
+        return {
+          shopping:{}
+        }
+      },
+      created () {
+        axios.get('/api/shopping')
+          .then(response => {
+            const result = response.data
+            if (result.code === 0) {
+              this.shopping = result.data
+              console.log(this.shopping)
+            }
+          })
+      },
       components:{
           product
       }

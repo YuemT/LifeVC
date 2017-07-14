@@ -32,7 +32,7 @@
     transition: all .2s linear
 
   .aboutlifevc-enter, .aboutlifevc-leave-to
-    transform translateX(375px)
+    transform translateX(100%)
   .aboutlifevc
     width 100%
     min-height 100%

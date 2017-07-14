@@ -3,6 +3,7 @@
 import Vue from 'vue'
 import app from './app'
 import router from './router'
+import './mock/mockServer' //引入加载模块
 
 Vue.config.productionTip = false
 import './common/stylus/fonts.styl'
