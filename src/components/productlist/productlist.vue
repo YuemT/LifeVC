@@ -37,10 +37,10 @@
             <img src="./product-8.jpg" alt="">
             <span>家务工具</span>
           </li>
-          <li class="product-item">
-            <img src="./product-9.jpg" alt="">
-            <span>家务工具</span>
-          </li>
+          <!--<li class="product-item">-->
+            <!--<img src="./product-9.jpg" alt="">-->
+            <!--<span>家务工具</span>-->
+          <!--</li>-->
         </ul>
       </div>
     </div>
@@ -62,23 +62,26 @@
       font-size 18px
       line-height 24px
       text-align center
-    .product-item
-      float left
-      width 33.333%
-      height 138px
-      border-right 1px solid #f1f1f1
-      border-bottom 1px solid #f1f1f1
+    .product-list
+      overflow hidden
       background white
-      text-align center
-      border-collapse:collapse;
-      box-sizing border-box
-      img
-        vertical-align middle
-        width 60%
-        padding-top 12px
-      span
-        display block
-        font-size 13px
-        padding-top 10px
-        padding-bottom 5px
+      .product-item
+        float left
+        width 33.333%
+        height 138px
+        border-right 1px solid #f1f1f1
+        border-bottom 1px solid #f1f1f1
+        background white
+        text-align center
+        border-collapse:collapse;
+        box-sizing border-box
+        img
+          vertical-align middle
+          width 60%
+          padding-top 12px
+        span
+          display block
+          font-size 13px
+          padding-top 10px
+          padding-bottom 5px
 </style>

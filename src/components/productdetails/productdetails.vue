@@ -36,24 +36,34 @@
         <!--优惠信息-->
         <div class="product-promo-wrap">
           <span class="product-promo-wrap-left">优惠</span>
-          <span class="product-promo-wrap-right">登录查看你的积分和优惠券</span>
+          <router-link to="login">
+            <span class="product-promo-wrap-right">登录查看你的积分和优惠券</span>
+          </router-link>
         </div>
         <!--规格和颜色-->
         <div class="size-and-color">
           <div class="size-and-color-item">
             <span>规格:</span>
-            <div class="product-size-1">
+            <div :class="{active:sizeIsActive, notactive:!sizeIsActive}" @click="changeActive(sizeIsActive)">
               分隔式
+              <div class="item"></div>
             </div>
-            <div class="product-size">
+            <div :class="{active:!sizeIsActive, notactive:sizeIsActive}" @click="changeActive(!sizeIsActive)">
               带筷式
-              </div>
+              <div class="item"></div>
+            </div>
           </div>
           <div class="size-and-color-item">
             <span>颜色:</span>
-            <div class="product-color product-color-1">
+            <div class="product-color color-1"
+                 :class="{isselected:isColorActive, notselected:!isColorActive}"
+                @click="changColorActive(isColorActive)">
+              <div class="item"></div>
             </div>
-            <div class="product-color product-color-2">
+            <div class="product-color color-2"
+                 :class="{isselected:!isColorActive, notselected:isColorActive}"
+               @click="changColorActive(!isColorActive)">
+              <div class="item"></div>
             </div>
           </div>
         </div>
@@ -69,7 +79,8 @@
         <!--运费-->
         <div class="transport">
           <span class="product-transport">送至:</span>
-          <span class="transport-city" @click="showAdress=!showAdress">{{addressProvince}}{{addressCity}}{{addressXian}}(满￥99免运费)</span>
+          <!--<span class="transport-city" @click="showAdress=!showAdress">{{addressProvince}}{{addressCity}}{{addressXian}}(满￥99免运费)</span>-->
+          <span class="transport-city" @click="showAdress=!showAdress">{{Province}}{{City}}{{Xian}}(满￥99免运费)</span>
           <span class="transport-discount">新会员首单，满69元免运费</span>
         </div>
         <!--活动中心-->
@@ -140,7 +151,8 @@
         <div class="address-detail" v-show="showAdress">
           <div class="address-header">
             <button class="button-left" @click="showAdress=!showAdress">取消</button>
-            <button class="button-right" @click="showAdress=!showAdress">确定</button>
+            <!--<button class="button-right" @click="showAdress=!showAdress">确定</button>-->
+            <button class="button-right" @click="changeAdress">确定</button>
           </div>
           <div class="address-components">
             <div class="address">
@@ -157,16 +169,60 @@
       <div class="product-footer">
         <span class="kefu">客服</span>
         <router-link to="/"><span class="shouye">首页</span></router-link>
-        <button class="shopcart-button">
-        </button>
+        <router-link to="/shopcart">
+          <button class="shopcart-button">
+          </button>
+        </router-link>
         <button class="add-to-shopcart">加入购物车</button>
         <p class="circle">0</p>
       </div>
+      <!--加入购物车-->
+      <div class="add-to-cart">
+        <div class="add-to-cart-header">
+          <div class="add-to-cart-header"></div>
+        </div>
+        <div class="add-to-cart-content">
+          <!--规格和颜色-->
+          <div class="size-and-color">
+            <div class="size-and-color-item">
+              <span>规格:</span>
+              <div :class="{active:sizeIsActive, notactive:!sizeIsActive}" @click="changeActive(sizeIsActive)">
+                分隔式
+                <div class="item"></div>
+              </div>
+              <div :class="{active:!sizeIsActive, notactive:sizeIsActive}" @click="changeActive(!sizeIsActive)">
+                带筷式
+                <div class="item"></div>
+              </div>
+            </div>
+            <div class="size-and-color-item">
+              <span>颜色:</span>
+              <div class="product-color color-1"
+                   :class="{isselected:isColorActive, notselected:!isColorActive}"
+                   @click="changColorActive(isColorActive)">
+                <div class="item"></div>
+              </div>
+              <div class="product-color color-2"
+                   :class="{isselected:!isColorActive, notselected:isColorActive}"
+                   @click="changColorActive(!isColorActive)">
+                <div class="item"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="add-to-cart-footer">
 
+        </div>
+      </div>
     </div>
 </template>
 
 <script>
+    import { Tabbar, TabItem } from 'mint-ui';
+
+    Vue.component(Tabbar.name, Tabbar);
+    Vue.component(TabItem.name, TabItem);
+
     import Vue from 'vue'
     import { Swipe, SwipeItem } from 'mint-ui';
     import addresscom from '../addresscom/addresscom.vue'
@@ -180,6 +236,11 @@
     export default{
       data(){
         return {
+          Province:'河北省',
+          City:'保定市',
+          Xian:'涿州市',
+          sizeIsActive: true,
+          isColorActive: true,
           isShow: true,
           num: 1,
           showAdress: false,
@@ -238,6 +299,20 @@
         }
       },
       methods:{
+        changeActive(sizeIsActive){
+            if(sizeIsActive){
+              return
+            } else {
+              this.sizeIsActive = !this.sizeIsActive
+            }
+        },
+        changColorActive(isColorActive){
+            if(isColorActive){
+                return
+            }else{
+              this.isColorActive = !this.isColorActive
+            }
+        },
         closeIcon () {
           this.isShow = !this.isShow
         },
@@ -263,6 +338,12 @@
         },
         onStreetChange(picker, values){
           this.addressStreet = values[0]
+        },
+        changeAdress(){
+          this.showAdress=!this.showAdress,
+          this.Province = this.addressProvince,
+          this.City = this.addressCity,
+          this.Xian = this.addressXian
         }
       },
       watch: {
@@ -381,7 +462,8 @@
           font-size 13px
           display block
           padding 4px 0
-        .product-size
+        .active
+          position relative
           margin-right 8px
           float left
           height 38px
@@ -391,7 +473,28 @@
           line-height 38px
           text-align center
           border 1px solid #83b842
-        .product-size-1
+          overflow hidden
+          .item
+            position absolute
+            right 0
+            bottom -15px
+            width:0;
+            height:0;
+            border-top:15px solid transparent;
+            border-bottom:15px solid transparent;
+            border-right:15px solid #83b842;
+          .item::after
+            content ''
+            width 8px
+            height 4px
+            display block
+            position absolute
+            bottom 3px
+            right -15px
+            border-bottom 1px solid #fff
+            border-left 1px solid #fff
+            transform rotate(-45deg)
+        .notactive
           margin-right 8px
           float left
           height 38px
@@ -406,11 +509,37 @@
           float left
           border 1px solid #83b842
           margin-right 8px
-        .product-color-1
+        .color-1
           background-image url("./white.jpg")
-          background-size 100%
-        .product-color-2
+        .color-2
           background-image url("./black.jpg")
+        .isselected
+          border 1px solid #83b842
+          position relative
+          overflow hidden
+          background-size 100%
+          .item
+            position absolute
+            right 0
+            bottom -15px
+            width:0;
+            height:0;
+            border-top:15px solid transparent;
+            border-bottom:15px solid transparent;
+            border-right:15px solid #83b842;
+          .item::after
+            content ''
+            width 8px
+            height 4px
+            display block
+            position absolute
+            bottom 3px
+            right -15px
+            border-bottom 1px solid #fff
+            border-left 1px solid #fff
+            transform rotate(-45deg)
+        .notselected
+          border 1px solid #ccc
           background-size 100%
     .product-num
       color #666
@@ -501,7 +630,7 @@
       button
         height 40px
         font-size 17px
-        color #26a2ff
+        color #26a2ff7
         line-height 35px
       .button-left
         padding-left 30px
@@ -541,7 +670,6 @@
       height 51px
       line-height 51px
       border-top 1px solid rgb(242, 242, 242)
-
   .address-enter-active, .address-leave-active
     transition opacity .1s linear
   .address-enter, .address-leave-to
@@ -591,6 +719,7 @@
       background-image url("./kefu.png")
     .shouye
       background-image url("./shouye.png")
+      color #333
     .shopcart-button
       width 75px
       height 38px
@@ -625,4 +754,114 @@
       box-sizing border-box
       color white
       font-size 16px
+  .add-to-cart
+    z-index 1200
+    width 100%
+    height 433px
+    overflow hidden
+    position fixed
+    bottom 0
+    left 0
+    background white
+    .add-to-cart-header
+      height 100px
+      border-bottom 1px solid #e7e7e7
+    .add-to-cart-content
+      height 271px
+      .size-and-color
+        height 154px
+        margin-left 7px
+        color #666
+        .size-and-color-item
+          height 57px
+          margin-top 10px
+          span
+            font-size 13px
+            display block
+            padding 4px 0
+          .active
+            position relative
+            margin-right 8px
+            float left
+            height 38px
+            padding 0 8px
+            font-size 14px
+            color #83b842
+            line-height 38px
+            text-align center
+            border 1px solid #83b842
+            overflow hidden
+            .item
+              position absolute
+              right 0
+              bottom -15px
+              width:0;
+              height:0;
+              border-top:15px solid transparent;
+              border-bottom:15px solid transparent;
+              border-right:15px solid #83b842;
+            .item::after
+              content ''
+              width 8px
+              height 4px
+              display block
+              position absolute
+              bottom 3px
+              right -15px
+              border-bottom 1px solid #fff
+              border-left 1px solid #fff
+              transform rotate(-45deg)
+          .notactive
+            margin-right 8px
+            float left
+            height 38px
+            padding 0 8px
+            font-size 14px
+            line-height 38px
+            text-align center
+            border 1px solid #ccc
+          .product-color
+            width 48px
+            height 48px
+            float left
+            border 1px solid #83b842
+            margin-right 8px
+          .color-1
+            background-image url("./white.jpg")
+          .color-2
+            background-image url("./black.jpg")
+          .isselected
+            border 1px solid #83b842
+            position relative
+            overflow hidden
+            background-size 100%
+            .item
+              position absolute
+              right 0
+              bottom -15px
+              width:0;
+              height:0;
+              border-top:15px solid transparent;
+              border-bottom:15px solid transparent;
+              border-right:15px solid #83b842;
+            .item::after
+              content ''
+              width 8px
+              height 4px
+              display block
+              position absolute
+              bottom 3px
+              right -15px
+              border-bottom 1px solid #fff
+              border-left 1px solid #fff
+              transform rotate(-45deg)
+          .notselected
+            border 1px solid #ccc
+            background-size 100%
+    .add-to-cart-footer
+      height 60px
+      background-color #e7e7e7
+      border-bottom 1px solid #ddd
+      border-top 1px solid #ddd
+
 </style>
