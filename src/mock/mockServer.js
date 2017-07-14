@@ -8,7 +8,7 @@ import data from './data.json'
 //注册接口
 Mock.mock('/api/shopping', {
   code: 0,
-  data: data.shopping1
+  data: data.shopping
 })
 
 // 不用export
