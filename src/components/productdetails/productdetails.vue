@@ -173,13 +173,27 @@
           <button class="shopcart-button">
           </button>
         </router-link>
-        <button class="add-to-shopcart">加入购物车</button>
+        <button class="add-to-shopcart" @click="showAdd(true)">加入购物车</button>
         <p class="circle">0</p>
       </div>
       <!--加入购物车-->
-      <div class="add-to-cart">
+      <transition name="addToCart">
+        <div class="add-to-cart" v-show="showAddToCart">
         <div class="add-to-cart-header">
-          <div class="add-to-cart-header"></div>
+          <div class="add-to-cart-header-img">
+          </div>
+          <div class="product-title">
+            <h2>耐高温玻璃饭盒</h2>
+            <p class="product-title-price">
+              <span class="product-title-price-left">¥19</span>
+              <span class="product-title-price-right">¥29</span>
+            </p>
+            <p class="product-title-discount">
+              <span class="product-title-discount-left">限时体验价</span>
+              <span class="product-title-discount-right">新</span>
+            </p>
+            <span class="close-icon" @click="showAdd(false)">×</span>
+          </div>
         </div>
         <div class="add-to-cart-content">
           <!--规格和颜色-->
@@ -211,9 +225,14 @@
           </div>
         </div>
         <div class="add-to-cart-footer">
-
+          <button class="add-to-cart-footer-button" @click="showAdd(false)">确定</button>
         </div>
       </div>
+      </transition>
+      <!--黑窗口-->
+      <transition name="blackwindow2">
+        <div class="black-window-2" v-show="showAddToCart"></div>
+      </transition>
     </div>
 </template>
 
@@ -236,6 +255,7 @@
     export default{
       data(){
         return {
+          showAddToCart:false,
           Province:'河北省',
           City:'保定市',
           Xian:'涿州市',
@@ -344,6 +364,9 @@
           this.Province = this.addressProvince,
           this.City = this.addressCity,
           this.Xian = this.addressXian
+        },
+        showAdd(isShow){
+            this.showAddToCart = isShow
         }
       },
       watch: {
@@ -754,10 +777,14 @@
       box-sizing border-box
       color white
       font-size 16px
+  //.addToCart-enter-active, .addToCart-leave-active
+    //transition translateY 1s linear
+  //.addToCart-enter, .addToCart-leave-to
+    //translateY
   .add-to-cart
     z-index 1200
     width 100%
-    height 433px
+    height 339px
     overflow hidden
     position fixed
     bottom 0
@@ -766,15 +793,76 @@
     .add-to-cart-header
       height 100px
       border-bottom 1px solid #e7e7e7
+      overflow hidden
+      //注意垂直外边距的重叠
+      .add-to-cart-header-img
+        float left
+        width 85px
+        height 85px
+        margin 7px
+        border 1px solid #89be48
+        background-image url("./black.jpg")
+        background-size 100%
+        background-repeat no-repeat
+      .product-title
+        float left
+        height 92px
+        padding 10px 0 17px
+        background-color white
+        text-align left
+        h2
+          font-size 20px
+          line-height 29px
+        .product-title-info
+          margin 7px 0
+          color #999
+        .close-icon
+          position absolute
+          right 3px
+          top 10px
+          width 16px
+          height 12px
+          transform rotate(90deg)
+          font-size 30px
+          font-weight 300
+          color #aaa
+        .product-title-price
+          margin-top 8px
+          line-height 22px
+          .product-title-price-left
+            font-size 22px
+            color #c00
+          .product-title-price-right
+            font-size 20px
+            color #000
+            font-weight 200
+            text-decoration line-through
+            margin-left 2px
+
+        .product-title-discount
+          .product-title-discount-left
+            display inline-block
+            margin-right 2px
+            padding 1px
+            background-color rgb(254, 209, 9)
+            font-size 14px
+          .product-title-discount-right
+            display inline-block
+            background-color rgb(205, 6, 15)
+            font-size 14px
+            color rgb(253, 238, 238)
+            padding 1px
     .add-to-cart-content
-      height 271px
+      height 177px
       .size-and-color
         height 154px
         margin-left 7px
+        line-height 22px
         color #666
         .size-and-color-item
-          height 57px
-          margin-top 10px
+          padding-top 5px
+          height 60px
+          margin-bottom 10px
           span
             font-size 13px
             display block
@@ -863,5 +951,30 @@
       background-color #e7e7e7
       border-bottom 1px solid #ddd
       border-top 1px solid #ddd
-
+      .add-to-cart-footer-button
+        display block
+        width 160px
+        height 40px
+        background #83b842
+        border-radius 5px
+        border 0
+        margin 10px auto
+        color white
+        font-size 18px
+  .addToCart-enter-active, .addToCart-leave-active
+    transition translateY .1s linear
+  .addToCart-enter, .addToCart-leave-to
+    translateY -339px
+  .black-window-2
+    position fixed
+    left 0
+    top 0
+    z-index 1150
+    width 100%
+    height 667px
+    background-color rgba(0,0,0,.5)
+  .blackwindow2-enter-active, .blackwindow2-leave-active
+    transition opacity .1s linear
+  .blackwindow2-enter, .blackwindow2-leave-to
+    opacity 0
 </style>
