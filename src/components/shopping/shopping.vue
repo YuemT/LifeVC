@@ -22,22 +22,22 @@
         </div>
         <div class="notice">
           <ul>
-            <li>
-              <span>49元包一年</span>
+            <li v-for="comfiger in shopping.ConfigerList">
+              <span>{{comfiger.Title}}</span>
             </li>
-            <li>
-              <span>今日新品</span>
-            </li>
-            <li>
-              <span>送500元积分</span>
-            </li>
-            <li>
-              <span>金币商城</span>
-            </li>
+            <!--<li>-->
+              <!--<span>今日新品</span>-->
+            <!--</li>-->
+            <!--<li>-->
+              <!--<span>送500元积分</span>-->
+            <!--</li>-->
+            <!--<li>-->
+              <!--<span>金币商城</span>-->
+            <!--</li>-->
           </ul>
         </div>
         <div class="shopping-wrap  shopping-wrap-rigth">
-          <div class="product-items" v-for="product in shopping.StrollList">
+          <div class="product-items" v-for="product in shopping.StrollList2">
             <div>
               <img :src="product.ImageUrl" alt="">
             </div>

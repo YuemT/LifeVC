@@ -14,6 +14,7 @@
 
 <style lang="stylus" rel="stylesheet/stylus">
   .recommend-product
+    color #333
     float left
     background-color white
     width 96px
