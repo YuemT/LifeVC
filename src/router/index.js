@@ -4,6 +4,7 @@ import index from '../components/index/index.vue'
 import allproduct from '../components/allproduct/allproduct.vue'
 import shopcart from '../components/shopcart/shopcart.vue'
 import shopping from '../components/shopping/shopping.vue'
+import shopping2 from '../components/shopping2/shopping2.vue'
 import usercenter from '../components/usercenter/usercenter.vue'
 import productdetails from '../components/productdetails/productdetails.vue'
 import aboutlifevc from '../components/aboutlifevc/aboutlifevc.vue'
@@ -35,6 +36,10 @@ export default new Router({
     {
       path: '/shopping',
       component: shopping
+    },
+    {
+      path: '/shopping2',
+      component: shopping2
     },
     {
       path: '/usercenter',
