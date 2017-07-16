@@ -10,11 +10,11 @@
             {{product.Name}}
         </div>
           <div class="product-detail">
-            <span class="timing-try">限时体验价</span>
+            <span class="timing-try" v-show="product.ActivityTag">限时体验价</span>
             <span>￥</span>
             <span>{{product.ActivityPrice?product.ActivityPrice:product.SalePrice}}</span>
             <span class="update" v-show="product.ActivityPrice">￥{{product.SalePrice}}</span>
-            <span class="new-icon">新</span>
+            <span class="new-icon" v-show="product.PriceTag">新</span>
             <span class="rating-num">评论:{{product.CommentCount}}</span>
           </div>
         </div>
@@ -29,11 +29,11 @@
             {{product.Name}}
         </div>
           <div class="product-detail">
-            <span class="timing-try">限时体验价</span>
+            <span class="timing-try" v-show="product.ActivityTag">限时体验价</span>
             <span>￥</span>
             <span v-show="product.SalePrice">{{product.ActivityPrice?product.ActivityPrice:product.SalePrice}}</span>
             <span class="update" v-show="product.ActivityPrice">￥{{product.SalePrice}}</span>
-            <span class="new-icon">新</span>
+            <span class="new-icon" v-show="product.PriceTag">新</span>
             <span class="rating-num">评论:{{product.CommentCount}}</span>
           </div>
         </div>
