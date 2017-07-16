@@ -49,7 +49,6 @@
 
 <script>
     import axios from 'axios'
-    import product from '../product/product.vue'
     export default{
       data () {
         return {
@@ -65,9 +64,6 @@
               this.shopping = result.data
             }
           })
-      },
-      components:{
-          product
       }
     }
 </script>

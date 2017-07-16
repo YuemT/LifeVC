@@ -27,11 +27,11 @@
         </div>
         <div ref="recommend" class="recommend-ref">
           <mt-navbar v-model="selected" class="recommend-item">
-            <mt-tab-item id="1" v-for="(product,index) in shopping.StrollList">
+            <mt-tab-item :id="index" v-for="(product,index) in shopping.StrollList">
               <div class="recommend-product">
-                <img src="./recommend-product.jpg" alt="">
-                <p class="title">自粘式缝隙贴(2卷装)</p>
-                <p class="price">￥19</p>
+                <img :src="product.ImageUrl" alt="">
+                <p class="title">{{product.Name}}</p>
+                <p class="price">￥{{product.SalePrice}}</p>
               </div>
             </mt-tab-item>
           </mt-navbar>
