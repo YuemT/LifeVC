@@ -11,4 +11,14 @@ Mock.mock('/api/shopping', {
   data: data.shopping
 })
 
+Mock.mock('/api/index', {
+  code: 0,
+  data: data.InnerDataAll
+})
+
+Mock.mock('/api/product', {
+  code: 0,
+  data: data.InnerData
+})
+
 // 不用export

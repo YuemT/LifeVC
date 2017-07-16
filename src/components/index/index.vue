@@ -88,6 +88,7 @@
 </template>
 
 <script>
+  import axios from 'axios'
   import BScroll from 'better-scroll'
   import indextab from '../indextab/indextab.vue'
   import { TabContainer, TabContainerItem } from 'mint-ui';

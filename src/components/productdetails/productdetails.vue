@@ -11,24 +11,19 @@
         <div class="product-details-wrapper">
           <div class="carousel">
             <mt-swipe :auto="4000">
-              <mt-swipe-item><img src="./detailimg-1.jpg" alt=""></mt-swipe-item>
-              <mt-swipe-item><img src="./detailimg-2.jpg" alt=""></mt-swipe-item>
-              <mt-swipe-item><img src="./detailimg-3.jpg" alt=""></mt-swipe-item>
-              <mt-swipe-item><img src="./detailimg-4.jpg" alt=""></mt-swipe-item>
-              <mt-swipe-item><img src="./detailimg-1.jpg" alt=""></mt-swipe-item>
-              <mt-swipe-item><img src="./detailimg-2.jpg" alt=""></mt-swipe-item>
-              <mt-swipe-item><img src="./detailimg-3.jpg" alt=""></mt-swipe-item>
+              <mt-swipe-item v-for="img in productDetail.Headers">
+                <img :src="img.ImageUrl" alt=""></mt-swipe-item>
             </mt-swipe>
           </div>
           <div class="product-title">
-            <h2>耐高温玻璃饭盒</h2>
-            <p class="product-title-info">午餐自己带,更健康</p>
+            <h2>{{productDetail.Name}}</h2>
+            <p class="product-title-info">{{productDetail.Caption}}</p>
             <p class="product-title-price">
-              <span class="product-title-price-left">¥19</span>
-              <span class="product-title-price-right">¥29</span>
+              <span class="product-title-price-left">¥{{productDetail.ActivityPrice}}</span>
+              <span class="product-title-price-right">¥{{productDetail.SalePrice}}</span>
             </p>
             <p class="product-title-discount">
-              <span class="product-title-discount-left">限时体验价</span>
+              <span class="product-title-discount-left">{{productDetail.ActivityTag}}</span>
               <span class="product-title-discount-right">新</span>
             </p>
           </div>
@@ -42,27 +37,11 @@
         </div>
         <!--规格和颜色-->
         <div class="size-and-color">
-          <div class="size-and-color-item">
-            <span>规格:</span>
-            <div :class="{active:sizeIsActive, notactive:!sizeIsActive}" @click="changeActive(sizeIsActive)">
-              分隔式
-              <div class="item"></div>
-            </div>
-            <div :class="{active:!sizeIsActive, notactive:sizeIsActive}" @click="changeActive(!sizeIsActive)">
-              带筷式
-              <div class="item"></div>
-            </div>
-          </div>
-          <div class="size-and-color-item">
-            <span>颜色:</span>
-            <div class="product-color color-1"
-                 :class="{isselected:isColorActive, notselected:!isColorActive}"
-                @click="changColorActive(isColorActive)">
-              <div class="item"></div>
-            </div>
-            <div class="product-color color-2"
-                 :class="{isselected:!isColorActive, notselected:isColorActive}"
-               @click="changColorActive(!isColorActive)">
+          <div class="size-and-color-item" v-for="prop in props">
+            <span>{{prop.pname}}:</span>
+            <div :class="{active:styleIsActive, notactive:!styleIsActive}"
+                 @click="changeActive(styleIsActive,$event)" v-for="vname in prop.vals">
+              {{vname.vname}}
               <div class="item"></div>
             </div>
           </div>
@@ -97,48 +76,21 @@
           </ul>
         </div>
         <!--详情图-->
-        <div class="detail-imgs">
-          <img src="./detail-1.jpg" alt="">
-          <img src="./detail-2.jpg" alt="">
-          <img src="./detail-3.jpg" alt="">
-          <img src="./detail-4.jpg" alt="">
-          <img src="./detail-5.jpg" alt="">
-          <img src="./detail-6.jpg" alt="">
-          <img src="./detail-7.jpg" alt="">
-          <img src="./detail-8.jpg" alt="">
-          <img src="./detail-9.jpg" alt="">
-          <img src="./detail-10.jpg" alt="">
-          <img src="./detail-11.jpg" alt="">
-          <img src="./detail-12.jpg" alt="">
+        <div class="detail-imgs" v-for="imgDetail in productDetail.Details">
+          <img :src="imgDetail.ImageUrl" alt="">
         </div>
         <!--会员使用评论-->
         <div class="user-common">
-          <p class="user-common-header">用户使用评论&nbsp;:&nbsp;(11条)</p>
-          <div class="user-common-detail">
-            <p>河南 136*****536&nbsp;<span>玛瑙会员&nbsp;累计购物:&nbsp;112</span></p>
-            <p>质量不错，也好看，就是有点小</p>
-            <span>2017-07-12&nbsp;&nbsp;规格:分隔式&nbsp;颜色:咖啡色</span>
-          </div>
-          <div class="user-common-detail">
-            <p>河南 136*****536&nbsp;<span>玛瑙会员&nbsp;累计购物:&nbsp;112</span></p>
-            <p>质量不错，也好看，就是有点小</p>
-            <span>2017-07-12&nbsp;&nbsp;规格:分隔式&nbsp;颜色:咖啡色</span>
-          </div>
-          <div class="user-common-detail">
-            <p>河南 136*****536&nbsp;<span>玛瑙会员&nbsp;累计购物:&nbsp;112</span></p>
-            <p>质量不错，也好看，就是有点小</p>
-            <span>2017-07-12&nbsp;&nbsp;规格:分隔式&nbsp;颜色:咖啡色</span>
-          </div>
-          <div class="user-common-detail">
-            <p>河南 136*****536&nbsp;<span>玛瑙会员&nbsp;累计购物:&nbsp;112</span></p>
-            <p>质量不错，也好看，就是有点小</p>
-            <span>2017-07-12&nbsp;&nbsp;规格:分隔式&nbsp;颜色:咖啡色</span>
+          <p class="user-common-header">用户使用评论&nbsp;:&nbsp;(10条)</p>
+          <div class="user-common-detail" v-for="commonItem in productDetail.CommentList">
+            <p>{{commonItem.CustomerCity}} {{commonItem.CustomerName}}<span>{{commonItem.CustomerLevelName}}&nbsp;累计购物:&nbsp;{{commonItem.BuyCount}}</span></p>
+            <p>{{commonItem.Content}}</p>
+            <span>{{commonItem.CreatedA}}{{commonItem.Target}}</span>
           </div>
           <div class="see-more">
             查看更多
           </div>
         </div>
-
       </div>
       <!--app安装提示-->
       <div class="detail-app-footer" v-show="isShow">
@@ -198,28 +150,12 @@
         <div class="add-to-cart-content">
           <!--规格和颜色-->
           <div class="size-and-color">
-            <div class="size-and-color-item">
-              <span>规格:</span>
-              <div :class="{active:sizeIsActive, notactive:!sizeIsActive}" @click="changeActive(sizeIsActive)">
-                分隔式
-                <div class="item"></div>
-              </div>
-              <div :class="{active:!sizeIsActive, notactive:sizeIsActive}" @click="changeActive(!sizeIsActive)">
-                带筷式
-                <div class="item"></div>
-              </div>
-            </div>
-            <div class="size-and-color-item">
-              <span>颜色:</span>
-              <div class="product-color color-1"
-                   :class="{isselected:isColorActive, notselected:!isColorActive}"
-                   @click="changColorActive(isColorActive)">
-                <div class="item"></div>
-              </div>
-              <div class="product-color color-2"
-                   :class="{isselected:!isColorActive, notselected:isColorActive}"
-                   @click="changColorActive(!isColorActive)">
-                <div class="item"></div>
+            <div class="size-and-color-item" v-for="prop in props">
+              <span>{{prop.pname}}:</span>
+              <div :class="{active:styleIsActive, notactive:!styleIsActive}"
+                   @click="changeActive(styleIsActive,$event)" v-for="vname in prop.vals">
+                {{vname.vname}}
+              <div class="item"></div>
               </div>
             </div>
           </div>
@@ -237,6 +173,7 @@
 </template>
 
 <script>
+    import axios from 'axios'
     import { Tabbar, TabItem } from 'mint-ui';
 
     Vue.component(Tabbar.name, Tabbar);
@@ -255,12 +192,14 @@
     export default{
       data(){
         return {
+          props:{},
+          productDetail:{},
           showAddToCart:false,
           Province:'河北省',
           City:'保定市',
           Xian:'涿州市',
-          sizeIsActive: true,
-          isColorActive: true,
+          styleIsActive: false,
+          //isColorActive: true,
           isShow: true,
           num: 1,
           showAdress: false,
@@ -318,21 +257,33 @@
           isActive:false
         }
       },
+      created () {
+        axios.get('/api/product')
+          .then(response => {
+            const result = response.data
+            if (result.code === 0) {
+              this.productDetail = result.data
+              this.props = result.data.GroupAttrs.props
+            }
+          })
+      },
       methods:{
-        changeActive(sizeIsActive){
-            if(sizeIsActive){
+        changeActive(styleIsActive,event,notactive){
+            console.log(event.target)
+            //event.target.addClass(notactive)
+            if(styleIsActive){
               return
             } else {
-              this.sizeIsActive = !this.sizeIsActive
+              this.styleIsActive = !this.styleIsActive
             }
         },
-        changColorActive(isColorActive){
-            if(isColorActive){
-                return
-            }else{
-              this.isColorActive = !this.isColorActive
-            }
-        },
+//        changColorActive(isColorActive){
+//            if(isColorActive){
+//                return
+//            }else{
+//              this.isColorActive = !this.isColorActive
+//            }
+//        },
         closeIcon () {
           this.isShow = !this.isShow
         },
@@ -376,9 +327,6 @@
             this.streetSlots[0].values = street
           }
         }
-      },
-      created(){
-
       },
       mounted(){
         this.$nextTick(() => {
@@ -506,7 +454,7 @@
             border-top:15px solid transparent;
             border-bottom:15px solid transparent;
             border-right:15px solid #83b842;
-          .item::after
+          ::after
             content ''
             width 8px
             height 4px
@@ -679,10 +627,10 @@
       border-top 6px solid #ddd
       line-height 26px
     .user-common-detail
-      height 60px
       padding 10px 0 10px 5px
       font-size 12px
       line-height 20px
+      border-bottom 1px solid #ccc
       p
         color
       span
