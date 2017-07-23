@@ -27,7 +27,7 @@
         </div>
         <div ref="recommend" class="recommend-ref">
           <mt-navbar v-model="selected" class="recommend-item">
-            <mt-tab-item :id="index" v-for="(product,index) in shopping.StrollList">
+            <mt-tab-item :id="index" :key="index" v-for="(product,index) in shopping.StrollList">
               <div class="recommend-product">
                 <img :src="product.ImageUrl" alt="">
                 <p class="title">{{product.Name}}</p>

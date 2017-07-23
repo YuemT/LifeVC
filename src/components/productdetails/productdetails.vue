@@ -11,7 +11,7 @@
         <div class="product-details-wrapper">
           <div class="carousel">
             <mt-swipe :auto="4000">
-              <mt-swipe-item v-for="img in productDetail.Headers">
+              <mt-swipe-item v-for="(img, index) in productDetail.Headers" :key="index">
                 <img :src="img.ImageUrl" alt=""></mt-swipe-item>
             </mt-swipe>
           </div>
@@ -37,10 +37,10 @@
         </div>
         <!--规格和颜色-->
         <div class="size-and-color">
-          <div class="size-and-color-item" v-for="prop in props">
+          <div class="size-and-color-item" v-for="(prop, index) in props">
             <span>{{prop.pname}}:</span>
-            <div :class="{active:styleIsActive, notactive:!styleIsActive}"
-                 @click="changeActive(styleIsActive,$event)" v-for="vname in prop.vals">
+            <div class="notactive" :id="index"
+                 @click.stop="changeActive($event)" v-for="vname in prop.vals">
               {{vname.vname}}
               <div class="item"></div>
             </div>
@@ -152,8 +152,8 @@
           <div class="size-and-color">
             <div class="size-and-color-item" v-for="prop in props">
               <span>{{prop.pname}}:</span>
-              <div :class="{active:styleIsActive, notactive:!styleIsActive}"
-                   @click="changeActive(styleIsActive,$event)" v-for="vname in prop.vals">
+              <div class="notactive"
+                   @click.prevent="changeActive($event)" v-for="vname in prop.vals">
                 {{vname.vname}}
               <div class="item"></div>
               </div>
@@ -198,7 +198,7 @@
           Province:'河北省',
           City:'保定市',
           Xian:'涿州市',
-          styleIsActive: false,
+          styleIsActive: true,
           //isColorActive: true,
           isShow: true,
           num: 1,
@@ -268,22 +268,9 @@
           })
       },
       methods:{
-        changeActive(styleIsActive,event,notactive){
-            console.log(event.target)
-            //event.target.addClass(notactive)
-            if(styleIsActive){
-              return
-            } else {
-              this.styleIsActive = !this.styleIsActive
-            }
+        changeActive(event,active){
+            event.target.className='active'
         },
-//        changColorActive(isColorActive){
-//            if(isColorActive){
-//                return
-//            }else{
-//              this.isColorActive = !this.isColorActive
-//            }
-//        },
         closeIcon () {
           this.isShow = !this.isShow
         },
